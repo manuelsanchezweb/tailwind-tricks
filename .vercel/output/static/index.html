@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="Astro description">
+		<meta name="viewport" content="width=device-width">
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+		<meta name="generator" content="Astro v2.8.0">
+		<title>Tailwind Tricks</title>
+	<link rel="stylesheet" href="/_astro/index.f0d6263b.css" /><script type="module">const t=document.querySelector('.theme-switch input[type="checkbox"]'),e=localStorage.getItem("theme");e&&(document.documentElement.setAttribute("data-theme",e),e==="dark"&&(t.checked=!0));function m(c){c.target.checked?(document.documentElement.setAttribute("data-theme","dark"),localStorage.setItem("theme","dark")):(document.documentElement.setAttribute("data-theme","light"),localStorage.setItem("theme","light"))}t.addEventListener("change",m,!1);
+</script></head>
+	<body>
+		
+	<header class="flex flex-col items-center justify-center mx-auto md:flex-row md:justify-between md:items-start my-6 w-full py-6">
+		<figure class="mx-auto w-full flex flex-col items-center md:items-start">
+			<img width="300" height="250" src="./logo.png" alt="Logo Tailwind Tricks">
+			<figcaption class="my-4 text-md">Cosas que igual no sabías de Tailwind</figcaption>
+		</figure>
+
+		<div class="theme-switch-wrapper astro-EF2QS43U">
+    <label class="theme-switch astro-EF2QS43U" for="checkbox">
+        <input type="checkbox" id="checkbox" class="astro-EF2QS43U">
+        <div class="slider astro-EF2QS43U">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#FCD53F" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun astro-EF2QS43U">
+                <circle cx="12" cy="12" r="5" class="astro-EF2QS43U"></circle>
+                <line x1="12" y1="1" x2="12" y2="3" class="astro-EF2QS43U"></line>
+                <line x1="12" y1="21" x2="12" y2="23" class="astro-EF2QS43U"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" class="astro-EF2QS43U"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" class="astro-EF2QS43U"></line>
+                <line x1="1" y1="12" x2="3" y2="12" class="astro-EF2QS43U"></line>
+                <line x1="21" y1="12" x2="23" y2="12" class="astro-EF2QS43U"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" class="astro-EF2QS43U"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" class="astro-EF2QS43U"></line>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="#FCD53F" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon astro-EF2QS43U">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" class="astro-EF2QS43U"></path>
+            </svg>
+        </div>
+    </label>
+</div>
+	</header>
+	<main>
+		
+	<section aria-label="Propiedades peer y accent-color">
+
+		
+<h2 class="text-[3vw] leading-none font-bold mb-4 undefined">1. Propiedades &#39;peer:&#39; y &#39;accent-color&#39;</h2>
+
+
+
+
+
+		<p>Aquí podríamos hablar de la propiedad <code>peer</code> con la que podemos hacer algo dependiendo del estado del elemento hermano (sibling). En este caso fíjate cómo añadimos la negrita al contenido del <code>div</code> si el input está <code>checked</code>. También, es interesante comentar lo que hace la propiedad <code>accent-color</code> para estilar el los input de type="radio" o type="checkbox" por ejemplo.</p>
+
+		<fieldset class="accent-purple-600 my-6">
+			<legend class="text-md font-semibold mb-2">¿Conocías esto de Tailwind CSS?</legend>
+			<label class="flex gap-2">
+				<input checked type="radio" name="option" id="yes" class="peer">
+				<div class="peer-checked:font-bold">Sí</div>
+			</label>
+			<label class="flex gap-2">
+				<input type="radio" name="option" id="no" class="peer">
+				<div class="peer-checked:font-bold">No</div>
+			</label>
+			<label class="flex gap-2">
+				<input type="radio" name="option" id="maybe" class="peer">
+				<div class="peer-checked:font-bold">Me sonaba...</div>
+			</label>
+		</fieldset>
+
+		<fieldset class="accent-purple-600 my-4">
+			<legend class="text-md font-semibold mb-2">Lista de la compra</legend>
+			<div class="flex gap-2 items-center">
+				<input type="checkbox" name="coke" id="coke" checked>
+				<label for="coke">Coca Cola Zero</label>
+			</div>
+			<div class="flex gap-2 items-center">
+				<input type="checkbox" name="bread" id="bread" checked>
+				<label for="bread">Pan para el desayuno</label>
+			</div>
+			<div class="flex gap-2 items-center">
+				<input type="checkbox" name="hummus" id="hummus">
+				<label for="hummus">Hummus</label>
+			</div>
+		</fieldset>
+
+		<pre class="astro-code one-dark-pro" style="background-color: #282c34; overflow-x: auto;"" tabindex="0"><code><span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">fieldset</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;accent-purple-600 my-6&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	&lt;</span><span style="color: #E06C75">legend</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;text-md font-semibold mb-2&quot;</span><span style="color: #ABB2BF">&gt;¿Conocías esto de Tailwind CSS?&lt;/</span><span style="color: #E06C75">legend</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	&lt;</span><span style="color: #E06C75">label</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;flex gap-2&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">		&lt;</span><span style="color: #E06C75">input</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">checked</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">type</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;radio&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">name</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;option&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">id</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;yes&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;peer&quot;</span><span style="color: #ABB2BF"> /&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">		&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;peer-checked:font-bold&quot;</span><span style="color: #ABB2BF">&gt;Sí&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	&lt;/</span><span style="color: #E06C75">label</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	&lt;</span><span style="color: #E06C75">label</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;flex gap-2&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">		&lt;</span><span style="color: #E06C75">input</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">type</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;radio&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">name</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;option&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">id</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;no&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;peer&quot;</span><span style="color: #ABB2BF"> /&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">		&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;peer-checked:font-bold&quot;</span><span style="color: #ABB2BF">&gt;No&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	&lt;/</span><span style="color: #E06C75">label</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	&lt;</span><span style="color: #E06C75">label</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;flex gap-2&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">		&lt;</span><span style="color: #E06C75">input</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">type</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;radio&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">name</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;option&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">id</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;maybe&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;peer&quot;</span><span style="color: #ABB2BF"> /&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">		&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;peer-checked:font-bold&quot;</span><span style="color: #ABB2BF">&gt;Me sonaba...&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	&lt;/</span><span style="color: #E06C75">label</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">fieldset</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">fieldset</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;accent-purple-600 my-4&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	&lt;</span><span style="color: #E06C75">legend</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;text-md font-semibold mb-2&quot;</span><span style="color: #ABB2BF">&gt;Lista de la compra&lt;/</span><span style="color: #E06C75">legend</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;flex gap-2 items-center&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">		&lt;</span><span style="color: #E06C75">input</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">type</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;checkbox&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">name</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;coke&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">id</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;coke&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">checked</span><span style="color: #ABB2BF"> /&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">		&lt;</span><span style="color: #E06C75">label</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">for</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;coke&quot;</span><span style="color: #ABB2BF">&gt;Coca Cola Zero&lt;/</span><span style="color: #E06C75">label</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;flex gap-2 items-center&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">		&lt;</span><span style="color: #E06C75">input</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">type</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;checkbox&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">name</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;bread&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">id</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;bread&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">checked</span><span style="color: #ABB2BF"> /&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">		&lt;</span><span style="color: #E06C75">label</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">for</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;bread&quot;</span><span style="color: #ABB2BF">&gt;Pan para el desayuno&lt;/</span><span style="color: #E06C75">label</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;flex gap-2 items-center&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">		&lt;</span><span style="color: #E06C75">input</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">type</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;checkbox&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">name</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;hummus&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">id</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;hummus&quot;</span><span style="color: #ABB2BF"> /&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">		&lt;</span><span style="color: #E06C75">label</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">for</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;hummus&quot;</span><span style="color: #ABB2BF">&gt;Hummus&lt;/</span><span style="color: #E06C75">label</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">fieldset</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">					</span></span></code></pre>
+
+	</section>
+
+	<section aria-label="Propiedades has y group">
+
+		
+<h2 class="text-[3vw] leading-none font-bold mb-4 undefined">2. Propiedades &#39;group:&#39; y &#39;has:&#39;</h2>
+
+
+
+
+
+		<p>Es cierto que por ahora podemos estilar el contenido de ciertos children al interactuar con el parent. A través de <code>group</code> podemos decir cuál va a ser el parent y luego hacer que algo suceda en hover o focus en alguno de los children, como es el caso del texto de la descripción de estas cards.</p>
+
+		<fieldset class="my-6 accent-lime-600">
+			<legend class="text-md font-semibold mb-2">¿Qué camino quieres emprender?</legend>
+			<label for="frontend" class="flex items-start gap-x-4 bg-[var(--color-bg)] border border-black p-6 has-[:checked]:bg-indigo-500 group my-3">	
+				<div>
+					<input class="checked:ring-white" type="radio" name="path" id="frontend" checked>
+				</div>
+				<div>
+					<div class="font-semibold has-[:checked]:font-bold">Frontend</div>
+					<div class="group-hover:text-gray-500 group-focus-within:text-gray-500">El camino de aquellos amantes de una buena UI y experiencia de usuario.</div>
+				</div>
+			</label>
+			<label for="backend" class="flex items-start gap-x-4 bg-[var(--color-bg)] border border-black p-6 has-[:checked]:bg-indigo-500 group my-3">	
+				<div>
+					<input class="checked:ring-white" type="radio" name="path" id="backend">
+				</div>
+				<div>
+					<div class="font-semibold has-[:checked]:font-bold">Backend</div>
+					<div class="group-hover:text-gray-500 group-focus-within:text-gray-500">Tu elección si te gusta la seguridad y robustez de unos datos bien mantenidos.</div>
+				</div>
+			</label>
+			<label for="technical" class="flex items-start gap-x-4 bg-[var(--color-bg)] border border-black p-6 has-[:checked]:bg-indigo-500 group my-3">	
+				<div>
+					<input class="checked:ring-white" type="radio" name="path" id="technical">
+				</div>
+				<div>
+					<div class="font-semibold has-[:checked]:font-bold">Técnico</div>
+					<div class="group-hover:text-gray-500 group-focus-within:text-gray-500">Quiero hacer de las actualizaciones del AVAST una carrera profesional.</div>
+				</div>
+			</label>
+		</fieldset>
+
+		<p>Lo que va a ser genial y está todavía en fase experimental, supongo porque Firefox todavía no lo ha aceptado del todo a julio de 2023, es el uso de <code>has</code>, ya que vamos a poder hacer justo lo contrario: <strong>estilar al parent dependiendo de lo que pase en uno de los children</strong>. Aquí te lo dejo en el código, pero teóricamente una vez se aplique, la carta seleccionada podrá tener un color de fondo.</p>
+
+		<pre class="astro-code one-dark-pro" style="background-color: #282c34; overflow-x: auto;"" tabindex="0"><code><span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">			</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">fieldset</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;my-6 accent-lime-600&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	&lt;</span><span style="color: #E06C75">legend</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;text-md font-semibold mb-2&quot;</span><span style="color: #ABB2BF">&gt;¿Qué camino quieres emprender?&lt;/</span><span style="color: #E06C75">legend</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	&lt;</span><span style="color: #E06C75">label</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">for</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;frontend&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;flex items-start gap-x-4 bg-[var(--color-bg)] border border-black p-6 has-[:checked]:bg-indigo-500 group my-3&quot;</span><span style="color: #ABB2BF">&gt;	</span></span>
+<span class="line"><span style="color: #ABB2BF">		&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">			&lt;</span><span style="color: #E06C75">input</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;checked:ring-white&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">type</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;radio&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">name</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;path&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">id</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;frontend&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">checked</span><span style="color: #ABB2BF"> /&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">		&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">		&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">			&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;font-semibold has-[:checked]:font-bold&quot;</span><span style="color: #ABB2BF">&gt;Frontend&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">			&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;group-hover:text-gray-500 group-focus-within:text-gray-500&quot;</span><span style="color: #ABB2BF">&gt;El camino de aquellos amantes de una buena UI y experiencia de usuario.&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">		&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	&lt;/</span><span style="color: #E06C75">label</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	&lt;</span><span style="color: #E06C75">label</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">for</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;backend&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;flex items-start gap-x-4 bg-[var(--color-bg)] border border-black p-6 has-[:checked]:bg-indigo-500 group my-3&quot;</span><span style="color: #ABB2BF">&gt;	</span></span>
+<span class="line"><span style="color: #ABB2BF">		&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">			&lt;</span><span style="color: #E06C75">input</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;checked:ring-white&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">type</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;radio&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">name</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;path&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">id</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;backend&quot;</span><span style="color: #ABB2BF"> /&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">		&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">		&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">			&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;font-semibold has-[:checked]:font-bold&quot;</span><span style="color: #ABB2BF">&gt;Backend&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">			&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;group-hover:text-gray-500 group-focus-within:text-gray-500&quot;</span><span style="color: #ABB2BF">&gt;Tu elección si te gusta la seguridad y robustez de unos datos bien mantenidos.&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">		&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	&lt;/</span><span style="color: #E06C75">label</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	&lt;</span><span style="color: #E06C75">label</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">for</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;technical&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;flex items-start gap-x-4 bg-[var(--color-bg)] border border-black p-6 has-[:checked]:bg-indigo-500 group my-3&quot;</span><span style="color: #ABB2BF">&gt;	</span></span>
+<span class="line"><span style="color: #ABB2BF">		&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">			&lt;</span><span style="color: #E06C75">input</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;checked:ring-white&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">type</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;radio&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">name</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;path&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">id</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;technical&quot;</span><span style="color: #ABB2BF"> /&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">		&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">		&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">			&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;font-semibold has-[:checked]:font-bold&quot;</span><span style="color: #ABB2BF">&gt;Técnico&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">			&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;group-hover:text-gray-500 group-focus-within:text-gray-500&quot;</span><span style="color: #ABB2BF">&gt;Quiero hacer de las actualizaciones del AVAST una carrera profesional.&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">		&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	&lt;/</span><span style="color: #E06C75">label</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">fieldset</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">								</span></span></code></pre>
+
+	</section>
+
+	<section aria-label="Tamaño fluido de text dependiendo del view port">
+
+		
+<h2 class="text-[3vw] leading-none font-bold mb-4 undefined">3. Tamaño de texto fluido</h2>
+
+
+
+
+
+		<p>Queremos intentar no utilizar tantas media queries y utilizar el view port a nuestro favor para poder tener unos títulos la mar de responsive. Puedes comprobar lo que ocurre cuando intentas hacer un resize de esta página con los títulos.</p>
+
+		<p>Para ello, hemos podido hacer:</p>
+
+		<pre class="astro-code one-dark-pro" style="background-color: #282c34; overflow-x: auto;"" tabindex="0"><code><span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">{</span><span style="color: #E06C75">variant</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">===</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&#39;h1&#39;</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">&amp;&amp;</span><span style="color: #ABB2BF"> &lt;</span><span style="color: #E06C75">h1</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #C678DD">{</span><span style="color: #98C379">`text-[6.5vw] leading-none font-bold mb-4 </span><span style="color: #C678DD">${</span><span style="color: #E06C75">extraClasses</span><span style="color: #C678DD">}</span><span style="color: #98C379">`</span><span style="color: #C678DD">}</span><span style="color: #ABB2BF">&gt;</span><span style="color: #C678DD">{</span><span style="color: #E06C75">title</span><span style="color: #C678DD">}</span><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">h1</span><span style="color: #ABB2BF">&gt;}</span></span>
+<span class="line"><span style="color: #ABB2BF">{</span><span style="color: #E06C75">variant</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">===</span><span style="color: #ABB2BF"> </span><span style="color: #98C379">&#39;h2&#39;</span><span style="color: #ABB2BF"> </span><span style="color: #56B6C2">&amp;&amp;</span><span style="color: #ABB2BF"> &lt;</span><span style="color: #E06C75">h2</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #C678DD">{</span><span style="color: #98C379">`text-[3vw] leading-none font-bold mb-4 </span><span style="color: #C678DD">${</span><span style="color: #E06C75">extraClasses</span><span style="color: #C678DD">}</span><span style="color: #98C379">`</span><span style="color: #C678DD">}</span><span style="color: #ABB2BF">&gt;</span><span style="color: #C678DD">{</span><span style="color: #E06C75">title</span><span style="color: #C678DD">}</span><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">h2</span><span style="color: #ABB2BF">&gt;}</span></span>
+<span class="line"><span style="color: #ABB2BF">		</span></span></code></pre>
+			
+
+	</section>
+
+	<section aria-label="Estilar dependiendo de la posición">
+
+		
+<h2 class="text-[3vw] leading-none font-bold mb-4 undefined">4. Estilar dependiendo de la posición</h2>
+
+
+
+
+
+		<p>Esta la sabes, pero muchas veces se nos olvida, y por eso no viene nada mal un buen recordatorio. Tenemos las clases para hacer <code>first:</code> <code>odd:</code> (posición impar), o <code>even:</code> (posición par) y poder crear una UI de la hostia. Incluso podemos hacer movidas para estilar solo los tres primeros elementos. Y todo solo con CSS/Tailwind, nada de JavaScript mirando index.</p>
+
+
+		<div class="flex flex-wrap gap-2 my-4">
+			<div class="h-4 w-6 bg-white border border-black first:bg-red-200 last:bg-red-200"></div><div class="h-4 w-6 bg-white border border-black first:bg-red-200 last:bg-red-200"></div><div class="h-4 w-6 bg-white border border-black first:bg-red-200 last:bg-red-200"></div><div class="h-4 w-6 bg-white border border-black first:bg-red-200 last:bg-red-200"></div><div class="h-4 w-6 bg-white border border-black first:bg-red-200 last:bg-red-200"></div><div class="h-4 w-6 bg-white border border-black first:bg-red-200 last:bg-red-200"></div><div class="h-4 w-6 bg-white border border-black first:bg-red-200 last:bg-red-200"></div>
+		</div>
+
+		<div class="flex flex-wrap gap-2 my-4">
+			<div class="h-4 w-6 bg-white border border-black odd:bg-red-200"></div><div class="h-4 w-6 bg-white border border-black odd:bg-red-200"></div><div class="h-4 w-6 bg-white border border-black odd:bg-red-200"></div><div class="h-4 w-6 bg-white border border-black odd:bg-red-200"></div><div class="h-4 w-6 bg-white border border-black odd:bg-red-200"></div><div class="h-4 w-6 bg-white border border-black odd:bg-red-200"></div><div class="h-4 w-6 bg-white border border-black odd:bg-red-200"></div>
+		</div>
+
+		<div class="flex flex-wrap gap-2 my-4">
+			<div class="h-4 w-6 bg-white border border-black even:bg-red-200"></div><div class="h-4 w-6 bg-white border border-black even:bg-red-200"></div><div class="h-4 w-6 bg-white border border-black even:bg-red-200"></div><div class="h-4 w-6 bg-white border border-black even:bg-red-200"></div><div class="h-4 w-6 bg-white border border-black even:bg-red-200"></div><div class="h-4 w-6 bg-white border border-black even:bg-red-200"></div><div class="h-4 w-6 bg-white border border-black even:bg-red-200"></div>
+		</div>
+
+		<div class="flex flex-wrap gap-2 my-4 [&>*:nth-child(-n+3)]:bg-red-200">
+			<div class="h-4 w-6 bg-white border border-black"></div><div class="h-4 w-6 bg-white border border-black"></div><div class="h-4 w-6 bg-white border border-black"></div><div class="h-4 w-6 bg-white border border-black"></div><div class="h-4 w-6 bg-white border border-black"></div><div class="h-4 w-6 bg-white border border-black"></div><div class="h-4 w-6 bg-white border border-black"></div>
+		</div>
+
+		<pre class="astro-code one-dark-pro" style="background-color: #282c34; overflow-x: auto;"" tabindex="0"><code><span class="line"></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">// Estila el primer y último elemento	</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;flex flex-wrap gap-2 my-4&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">{</span><span style="color: #ABB2BF">[...</span><span style="color: #61AFEF">Array</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">7</span><span style="color: #ABB2BF">)].</span><span style="color: #61AFEF">map</span><span style="color: #ABB2BF">((</span><span style="color: #E06C75; font-style: italic">_</span><span style="color: #ABB2BF">) </span><span style="color: #C678DD">=&gt;</span><span style="color: #ABB2BF"> (</span></span>
+<span class="line"><span style="color: #ABB2BF">		&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;h-4 w-6 bg-white border border-black first:bg-red-200 last:bg-red-200&quot;</span><span style="color: #ABB2BF">&gt;&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	))</span><span style="color: #C678DD">}</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">// Estila los elementos impares</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;flex flex-wrap gap-2 my-4&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">{</span><span style="color: #ABB2BF">[...</span><span style="color: #61AFEF">Array</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">7</span><span style="color: #ABB2BF">)].</span><span style="color: #61AFEF">map</span><span style="color: #ABB2BF">((</span><span style="color: #E06C75; font-style: italic">_</span><span style="color: #ABB2BF">) </span><span style="color: #C678DD">=&gt;</span><span style="color: #ABB2BF"> (</span></span>
+<span class="line"><span style="color: #ABB2BF">		&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;h-4 w-6 bg-white border border-black odd:bg-red-200&quot;</span><span style="color: #ABB2BF"> &gt;&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	))</span><span style="color: #C678DD">}</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">// Estila los elementos pares</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;flex flex-wrap gap-2 my-4&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">{</span><span style="color: #ABB2BF">[...</span><span style="color: #61AFEF">Array</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">7</span><span style="color: #ABB2BF">)].</span><span style="color: #61AFEF">map</span><span style="color: #ABB2BF">((</span><span style="color: #E06C75; font-style: italic">_</span><span style="color: #ABB2BF">) </span><span style="color: #C678DD">=&gt;</span><span style="color: #ABB2BF"> (</span></span>
+<span class="line"><span style="color: #ABB2BF">		&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;h-4 w-6 bg-white border border-black even:bg-red-200&quot;</span><span style="color: #ABB2BF">&gt;&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	))</span><span style="color: #C678DD">}</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">// Estila los tres primeros elementos</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;flex flex-wrap gap-2 my-4 [&amp;&gt;*:nth-child(-n+3)]:bg-red-200&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">{</span><span style="color: #ABB2BF">[...</span><span style="color: #61AFEF">Array</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">7</span><span style="color: #ABB2BF">)].</span><span style="color: #61AFEF">map</span><span style="color: #ABB2BF">((</span><span style="color: #E06C75; font-style: italic">_</span><span style="color: #ABB2BF">) </span><span style="color: #C678DD">=&gt;</span><span style="color: #ABB2BF"> (</span></span>
+<span class="line"><span style="color: #ABB2BF">		&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;h-4 w-6 bg-white border border-black&quot;</span><span style="color: #ABB2BF"> &gt;&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	))</span><span style="color: #C678DD">}</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	</span></span></code></pre>
+
+	<p>También podemos crear layouts interesantes con grid de esta forma.</p>
+				
+	<div class="grid gap-4 my-4">
+		<div class="bg-[var(--color-bg)] border border-black first:sm:col-span-2 first:sm:row-span-2 first:sm:bg-red-200 first:sm:text-black p-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam reiciendis voluptatum voluptate non dolorum odit excepturi vero. Ut, dolores perspiciatis? Culpa ad aspernatur accusantium quis autem reprehenderit voluptatem, odit et!</div><div class="bg-[var(--color-bg)] border border-black first:sm:col-span-2 first:sm:row-span-2 first:sm:bg-red-200 first:sm:text-black p-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam reiciendis voluptatum voluptate non dolorum odit excepturi vero. Ut, dolores perspiciatis? Culpa ad aspernatur accusantium quis autem reprehenderit voluptatem, odit et!</div><div class="bg-[var(--color-bg)] border border-black first:sm:col-span-2 first:sm:row-span-2 first:sm:bg-red-200 first:sm:text-black p-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam reiciendis voluptatum voluptate non dolorum odit excepturi vero. Ut, dolores perspiciatis? Culpa ad aspernatur accusantium quis autem reprehenderit voluptatem, odit et!</div>
+	</div>
+
+	<pre class="astro-code one-dark-pro" style="background-color: #282c34; overflow-x: auto;"" tabindex="0"><code><span class="line"></span>
+<span class="line"><span style="color: #7F848E; font-style: italic">// Estila el primer elemento para ocupar todo el espacio</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;grid gap-4 my-4&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	</span><span style="color: #C678DD">{</span><span style="color: #ABB2BF">[...</span><span style="color: #61AFEF">Array</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">3</span><span style="color: #ABB2BF">)].</span><span style="color: #61AFEF">map</span><span style="color: #ABB2BF">((</span><span style="color: #E06C75; font-style: italic">_</span><span style="color: #ABB2BF">) </span><span style="color: #C678DD">=&gt;</span><span style="color: #ABB2BF"> (</span></span>
+<span class="line"><span style="color: #ABB2BF">		&lt;</span><span style="color: #E06C75">div</span></span>
+<span class="line"><span style="color: #ABB2BF">		</span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;bg-white border border-black first:sm:col-span-2 first:sm:row-span-2 first:sm:bg-red-200 p-4&quot;</span></span>
+<span class="line"><span style="color: #ABB2BF">		&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam reiciendis voluptatum voluptate non dolorum odit excepturi vero. Ut, dolores perspiciatis? Culpa ad aspernatur accusantium quis autem reprehenderit voluptatem, odit et!&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	))</span><span style="color: #C678DD">}</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	</span></span>
+<span class="line"><span style="color: #ABB2BF">		</span></span></code></pre>
+
+	</section>
+
+	<section aria-label="Container Queries">
+
+		
+<h2 class="text-[3vw] leading-none font-bold mb-4 undefined">5. Container Queries</h2>
+
+
+
+
+
+		<p>Por mucho que intentemos huir de ellas, las <code>container queries</code>  ya están aquí, y en verdad, tienen bastante sentido. Echémosle un vistazo al siguiente componente en el que podemos hacer cambios dependiendo del espacio que ocupe. Por ahora hay que instalar el plugin <code>@tailwindcss/container-queries</code>, ¡pero ojalá se incorpore de forma nativa pronto!</p>
+
+		<div class="grid gap-4 my-4 ">
+			<div class="@container bg-[var(--color-bg)] border border-black first:sm:col-span-2 first:sm:row-span-2 first:sm:text-black p-4">
+					<div class="@lg:font-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam reiciendis voluptatum voluptate non dolorum odit excepturi vero. Ut, dolores perspiciatis? Culpa ad aspernatur accusantium quis autem reprehenderit voluptatem, odit et!</div>
+					<figure class="hidden @xl:flex @xl:gap-2 @xl:items-center my-4">
+						<img class="w-12 h-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="guy">
+						<figcaption class="flex flex-col">
+							<span class="text-xs">Paco Sánchez</span>
+							<span class="text-xs">Entusiasta web</span>
+						</figcaption>
+					</figure>
+				</div><div class="@container bg-[var(--color-bg)] border border-black first:sm:col-span-2 first:sm:row-span-2 first:sm:text-black p-4">
+					<div class="@lg:font-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam reiciendis voluptatum voluptate non dolorum odit excepturi vero. Ut, dolores perspiciatis? Culpa ad aspernatur accusantium quis autem reprehenderit voluptatem, odit et!</div>
+					<figure class="hidden @xl:flex @xl:gap-2 @xl:items-center my-4">
+						<img class="w-12 h-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="guy">
+						<figcaption class="flex flex-col">
+							<span class="text-xs">Paco Sánchez</span>
+							<span class="text-xs">Entusiasta web</span>
+						</figcaption>
+					</figure>
+				</div><div class="@container bg-[var(--color-bg)] border border-black first:sm:col-span-2 first:sm:row-span-2 first:sm:text-black p-4">
+					<div class="@lg:font-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam reiciendis voluptatum voluptate non dolorum odit excepturi vero. Ut, dolores perspiciatis? Culpa ad aspernatur accusantium quis autem reprehenderit voluptatem, odit et!</div>
+					<figure class="hidden @xl:flex @xl:gap-2 @xl:items-center my-4">
+						<img class="w-12 h-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="guy">
+						<figcaption class="flex flex-col">
+							<span class="text-xs">Paco Sánchez</span>
+							<span class="text-xs">Entusiasta web</span>
+						</figcaption>
+					</figure>
+				</div>
+		</div>
+
+		<pre class="astro-code one-dark-pro" style="background-color: #282c34; overflow-x: auto;"" tabindex="0"><code><span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">	</span><span style="color: #7F848E; font-style: italic">// El elemento más grande desplegará la imagen y el nombre, además del texto en negrita</span></span>
+<span class="line"><span style="color: #ABB2BF">	&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;grid gap-4 my-4 &quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">{</span><span style="color: #ABB2BF">[...</span><span style="color: #61AFEF">Array</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">3</span><span style="color: #ABB2BF">)].</span><span style="color: #61AFEF">map</span><span style="color: #ABB2BF">((</span><span style="color: #E06C75; font-style: italic">_</span><span style="color: #ABB2BF">) </span><span style="color: #C678DD">=&gt;</span><span style="color: #ABB2BF"> (</span></span>
+<span class="line"><span style="color: #ABB2BF">			&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;@container bg-[var(--color-bg)] border border-black first:sm:col-span-2 first:sm:row-span-2 first:sm:text-black p-4&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">				&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;@lg:font-bold&quot;</span><span style="color: #ABB2BF">&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam reiciendis voluptatum voluptate non dolorum odit excepturi vero. Ut, dolores perspiciatis? Culpa ad aspernatur accusantium quis autem reprehenderit voluptatem, odit et!&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">				&lt;</span><span style="color: #E06C75">figure</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;hidden @xl:flex @xl:gap-2 @xl:items-center my-4&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">					&lt;</span><span style="color: #E06C75">img</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;w-12 h-12 rounded-full object-cover&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">src</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=2070&amp;q=80&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">alt</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;guy&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">					&lt;</span><span style="color: #E06C75">figcaption</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;flex flex-col&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">						&lt;</span><span style="color: #E06C75">span</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;text-xs&quot;</span><span style="color: #ABB2BF">&gt;Paco Sánchez&lt;/</span><span style="color: #E06C75">span</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">						&lt;</span><span style="color: #E06C75">span</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;text-xs&quot;</span><span style="color: #ABB2BF">&gt;Entusiasta web&lt;/</span><span style="color: #E06C75">span</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">					&lt;/</span><span style="color: #E06C75">figcaption</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">				&lt;/</span><span style="color: #E06C75">figure</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">			&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">		))}</span></span>
+<span class="line"><span style="color: #ABB2BF">	&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">	</span></span></code></pre>
+
+	</section>
+
+	<section aria-label="Grid Masonry">
+
+		
+<h2 class="text-[3vw] leading-none font-bold mb-4 undefined">6. Grid Masonry</h2>
+
+
+
+
+
+		<p>Esto no necesita mucha descripción. Pronto vamos a poder ser capaces de utilizar la propiedad <code>grid-rows-[masonry]</code> para poder crear este tipo de layout de una forma sencilla. Fuera quebraderos de cabeza y librerías externas. ¡Vendrá más pronto que tarde!</p>
+
+	</section>
+
+	<section aria-label="Text Balance">
+
+		
+<h2 class="text-[3vw] leading-none font-bold mb-4 undefined">7. Text Balance</h2>
+
+
+
+
+
+		<p>Esto va a estar genial el día que esté aceptado en todos los navegadores, ya que <strong>por el momento no es así ni en Safari ni en Chrome a julio de 2023</strong>. Se trata de una forma de distribuir el espacio del texto y hacer los saltos de línea de forma que el texto quede visualmente bien. Por el momento no funciona, pero llegará...</p>
+
+		<h3 class="text-balance text-7xl text-center font-bold my-6">Este texto debería verse bien en las dos resoluciones</h3>
+
+		<pre class="astro-code one-dark-pro" style="background-color: #282c34; overflow-x: auto;"" tabindex="0"><code><span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">	&lt;</span><span style="color: #E06C75">h3</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;text-balance text-4xl font-bold my-6&quot;</span><span style="color: #ABB2BF">&gt;Este texto debería verse bien en las dos resoluciones&lt;/</span><span style="color: #E06C75">h3</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">		</span></span></code></pre>
+
+
+
+	</section>
+
+	</main>
+
+	<footer>
+		Si te gusta el contenido que estás viendo, puedes seguirme en <a target="_blank" rel="nofollow noopener" title="Canal de YouTube de manuelsanchezweb" href="https://www.youtube.com/channel/UCX3IE_OjG20p_AwbX06YAEg">mi canal de YouTube</a>  o <a href="https://www.manuelsanchezweb.com/" target="_blank" rel="nofollow noopener">abonarte a mi newsletter</a> , para estar al tanto de las novedades que voy publicando.
+	</footer>
+
+	</body></html>
