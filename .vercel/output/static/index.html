@@ -310,7 +310,7 @@
 		<p>Por mucho que intentemos huir de ellas, las <code>container queries</code>  ya están aquí, y en verdad, tienen bastante sentido. Echémosle un vistazo al siguiente componente en el que podemos hacer cambios dependiendo del espacio que ocupe. Por ahora hay que instalar el plugin <code>@tailwindcss/container-queries</code>, ¡pero ojalá se incorpore de forma nativa pronto!</p>
 
 		<div class="grid gap-4 my-4 ">
-			<div class="@container bg-[var(--color-bg)] border border-black first:sm:col-span-2 first:sm:row-span-2 first:sm:text-black p-4">
+			<div class="@container bg-[var(--color-bg)] border border-black first:sm:col-span-2 first:sm:row-span-2 p-4">
 					<div class="@lg:font-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam reiciendis voluptatum voluptate non dolorum odit excepturi vero. Ut, dolores perspiciatis? Culpa ad aspernatur accusantium quis autem reprehenderit voluptatem, odit et!</div>
 					<figure class="hidden @xl:flex @xl:gap-2 @xl:items-center my-4">
 						<img class="w-12 h-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="guy">
@@ -319,7 +319,7 @@
 							<span class="text-xs">Entusiasta web</span>
 						</figcaption>
 					</figure>
-				</div><div class="@container bg-[var(--color-bg)] border border-black first:sm:col-span-2 first:sm:row-span-2 first:sm:text-black p-4">
+				</div><div class="@container bg-[var(--color-bg)] border border-black first:sm:col-span-2 first:sm:row-span-2 p-4">
 					<div class="@lg:font-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam reiciendis voluptatum voluptate non dolorum odit excepturi vero. Ut, dolores perspiciatis? Culpa ad aspernatur accusantium quis autem reprehenderit voluptatem, odit et!</div>
 					<figure class="hidden @xl:flex @xl:gap-2 @xl:items-center my-4">
 						<img class="w-12 h-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="guy">
@@ -328,7 +328,7 @@
 							<span class="text-xs">Entusiasta web</span>
 						</figcaption>
 					</figure>
-				</div><div class="@container bg-[var(--color-bg)] border border-black first:sm:col-span-2 first:sm:row-span-2 first:sm:text-black p-4">
+				</div><div class="@container bg-[var(--color-bg)] border border-black first:sm:col-span-2 first:sm:row-span-2 p-4">
 					<div class="@lg:font-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam reiciendis voluptatum voluptate non dolorum odit excepturi vero. Ut, dolores perspiciatis? Culpa ad aspernatur accusantium quis autem reprehenderit voluptatem, odit et!</div>
 					<figure class="hidden @xl:flex @xl:gap-2 @xl:items-center my-4">
 						<img class="w-12 h-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="guy">
@@ -344,7 +344,7 @@
 <span class="line"><span style="color: #ABB2BF">	</span><span style="color: #7F848E; font-style: italic">// El elemento más grande desplegará la imagen y el nombre, además del texto en negrita</span></span>
 <span class="line"><span style="color: #ABB2BF">	&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;grid gap-4 my-4 &quot;</span><span style="color: #ABB2BF">&gt;</span></span>
 <span class="line"><span style="color: #ABB2BF">		</span><span style="color: #C678DD">{</span><span style="color: #ABB2BF">[...</span><span style="color: #61AFEF">Array</span><span style="color: #ABB2BF">(</span><span style="color: #D19A66">3</span><span style="color: #ABB2BF">)].</span><span style="color: #61AFEF">map</span><span style="color: #ABB2BF">((</span><span style="color: #E06C75; font-style: italic">_</span><span style="color: #ABB2BF">) </span><span style="color: #C678DD">=&gt;</span><span style="color: #ABB2BF"> (</span></span>
-<span class="line"><span style="color: #ABB2BF">			&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;@container bg-[var(--color-bg)] border border-black first:sm:col-span-2 first:sm:row-span-2 first:sm:text-black p-4&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">			&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;@container bg-[var(--color-bg)] border border-black first:sm:col-span-2 first:sm:row-span-2 p-4&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
 <span class="line"><span style="color: #ABB2BF">				&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;@lg:font-bold&quot;</span><span style="color: #ABB2BF">&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam reiciendis voluptatum voluptate non dolorum odit excepturi vero. Ut, dolores perspiciatis? Culpa ad aspernatur accusantium quis autem reprehenderit voluptatem, odit et!&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
 <span class="line"><span style="color: #ABB2BF">				&lt;</span><span style="color: #E06C75">figure</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;hidden @xl:flex @xl:gap-2 @xl:items-center my-4&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
 <span class="line"><span style="color: #ABB2BF">					&lt;</span><span style="color: #E06C75">img</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;w-12 h-12 rounded-full object-cover&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">src</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&amp;auto=format&amp;fit=crop&amp;w=2070&amp;q=80&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">alt</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;guy&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
