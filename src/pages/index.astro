@@ -72,37 +72,37 @@ import Toggle from '../components/ThemeToggler.astro';
 		</fieldset>
 
 		<Code code={`
-<fieldset class="accent-purple-600 my-6">
-	<legend class="text-md font-semibold mb-2">¿Conocías esto de Tailwind CSS?</legend>
-	<label class="flex gap-2">
-		<input checked type="radio" name="option" id="yes" class="peer" />
-		<div class="peer-checked:font-bold">Sí</div>
-	</label>
-	<label class="flex gap-2">
-		<input type="radio" name="option" id="no" class="peer" />
-		<div class="peer-checked:font-bold">No</div>
-	</label>
-	<label class="flex gap-2">
-		<input type="radio" name="option" id="maybe" class="peer" />
-		<div class="peer-checked:font-bold">Me sonaba...</div>
-	</label>
-</fieldset>
+	<fieldset class="accent-purple-600 my-6">
+		<legend class="text-md font-semibold mb-2">¿Conocías esto de Tailwind CSS?</legend>
+		<label class="flex gap-2">
+			<input checked type="radio" name="option" id="yes" class="peer" />
+			<div class="peer-checked:font-bold">Sí</div>
+		</label>
+		<label class="flex gap-2">
+			<input type="radio" name="option" id="no" class="peer" />
+			<div class="peer-checked:font-bold">No</div>
+		</label>
+		<label class="flex gap-2">
+			<input type="radio" name="option" id="maybe" class="peer" />
+			<div class="peer-checked:font-bold">Me sonaba...</div>
+		</label>
+	</fieldset>
 
-<fieldset class="accent-purple-600 my-4">
-	<legend class="text-md font-semibold mb-2">Lista de la compra</legend>
-	<div class="flex gap-2 items-center">
-		<input type="checkbox" name="coke" id="coke" checked />
-		<label for="coke">Coca Cola Zero</label>
-	</div>
-	<div class="flex gap-2 items-center">
-		<input type="checkbox" name="bread" id="bread" checked />
-		<label for="bread">Pan para el desayuno</label>
-	</div>
-	<div class="flex gap-2 items-center">
-		<input type="checkbox" name="hummus" id="hummus" />
-		<label for="hummus">Hummus</label>
-	</div>
-</fieldset>
+	<fieldset class="accent-purple-600 my-4">
+		<legend class="text-md font-semibold mb-2">Lista de la compra</legend>
+		<div class="flex gap-2 items-center">
+			<input type="checkbox" name="coke" id="coke" checked />
+			<label for="coke">Coca Cola Zero</label>
+		</div>
+		<div class="flex gap-2 items-center">
+			<input type="checkbox" name="bread" id="bread" checked />
+			<label for="bread">Pan para el desayuno</label>
+		</div>
+		<div class="flex gap-2 items-center">
+			<input type="checkbox" name="hummus" id="hummus" />
+			<label for="hummus">Hummus</label>
+		</div>
+	</fieldset>
 					`} lang="js" theme="one-dark-pro"  />
 
 	</section>
@@ -148,37 +148,37 @@ import Toggle from '../components/ThemeToggler.astro';
 
 		<Code code={`
 			
-<fieldset class="my-6 accent-lime-600">
-	<legend class="text-md font-semibold mb-2">¿Qué camino quieres emprender?</legend>
-	<label for="frontend" class="flex items-start gap-x-4 bg-[var(--color-bg)] border border-black p-6 has-[:checked]:bg-indigo-500 group my-3">	
-		<div>
-			<input class="checked:ring-white" type="radio" name="path" id="frontend" checked />
-		</div>
-		<div>
-			<div class="font-semibold has-[:checked]:font-bold">Frontend</div>
-			<div class="group-hover:text-gray-500 group-focus-within:text-gray-500">El camino de aquellos amantes de una buena UI y experiencia de usuario.</div>
-		</div>
-	</label>
-	<label for="backend" class="flex items-start gap-x-4 bg-[var(--color-bg)] border border-black p-6 has-[:checked]:bg-indigo-500 group my-3">	
-		<div>
-			<input class="checked:ring-white" type="radio" name="path" id="backend" />
-		</div>
-		<div>
-			<div class="font-semibold has-[:checked]:font-bold">Backend</div>
-			<div class="group-hover:text-gray-500 group-focus-within:text-gray-500">Tu elección si te gusta la seguridad y robustez de unos datos bien mantenidos.</div>
-		</div>
-	</label>
-	<label for="technical" class="flex items-start gap-x-4 bg-[var(--color-bg)] border border-black p-6 has-[:checked]:bg-indigo-500 group my-3">	
-		<div>
-			<input class="checked:ring-white" type="radio" name="path" id="technical" />
-		</div>
-		<div>
-			<div class="font-semibold has-[:checked]:font-bold">Técnico</div>
-			<div class="group-hover:text-gray-500 group-focus-within:text-gray-500">Quiero hacer de las actualizaciones del AVAST una carrera profesional.</div>
-		</div>
-	</label>
-</fieldset>
-								`} lang="js" theme="one-dark-pro"  />
+	<fieldset class="my-6 accent-lime-600">
+		<legend class="text-md font-semibold mb-2">¿Qué camino quieres emprender?</legend>
+		<label for="frontend" class="flex items-start gap-x-4 bg-[var(--color-bg)] border border-black p-6 has-[:checked]:bg-indigo-500 group my-3">	
+			<div>
+				<input class="checked:ring-white" type="radio" name="path" id="frontend" checked />
+			</div>
+			<div>
+				<div class="font-semibold has-[:checked]:font-bold">Frontend</div>
+				<div class="group-hover:text-gray-500 group-focus-within:text-gray-500">El camino de aquellos amantes de una buena UI y experiencia de usuario.</div>
+			</div>
+		</label>
+		<label for="backend" class="flex items-start gap-x-4 bg-[var(--color-bg)] border border-black p-6 has-[:checked]:bg-indigo-500 group my-3">	
+			<div>
+				<input class="checked:ring-white" type="radio" name="path" id="backend" />
+			</div>
+			<div>
+				<div class="font-semibold has-[:checked]:font-bold">Backend</div>
+				<div class="group-hover:text-gray-500 group-focus-within:text-gray-500">Tu elección si te gusta la seguridad y robustez de unos datos bien mantenidos.</div>
+			</div>
+		</label>
+		<label for="technical" class="flex items-start gap-x-4 bg-[var(--color-bg)] border border-black p-6 has-[:checked]:bg-indigo-500 group my-3">	
+			<div>
+				<input class="checked:ring-white" type="radio" name="path" id="technical" />
+			</div>
+			<div>
+				<div class="font-semibold has-[:checked]:font-bold">Técnico</div>
+				<div class="group-hover:text-gray-500 group-focus-within:text-gray-500">Quiero hacer de las actualizaciones del AVAST una carrera profesional.</div>
+			</div>
+		</label>
+	</fieldset>
+		`} lang="js" theme="one-dark-pro"  />
 
 	</section>
 
@@ -191,8 +191,8 @@ import Toggle from '../components/ThemeToggler.astro';
 		<p>Para ello, hemos podido hacer:</p>
 
 		<Code code={`
-{variant === 'h1' && <h1 class={\`text-[6.5vw] leading-none font-bold mb-4 \${extraClasses}\`}>{title}</h1>}
-{variant === 'h2' && <h2 class={\`text-[3vw] leading-none font-bold mb-4 \${extraClasses}\`}>{title}</h2>}
+	{variant === 'h1' && <h1 class={\`text-[6.5vw] leading-none font-bold mb-4 \${extraClasses}\`}>{title}</h1>}
+	{variant === 'h2' && <h2 class={\`text-[3vw] leading-none font-bold mb-4 \${extraClasses}\`}>{title}</h2>}
 		`} lang="js" theme="one-dark-pro"  />
 			
 
@@ -238,33 +238,33 @@ import Toggle from '../components/ThemeToggler.astro';
 		</div>
 
 		<Code code={`
-// Estila el primer y último elemento	
-<div class="flex flex-wrap gap-2 my-4">
-	{[...Array(7)].map((_) => (
-		<div class="h-4 w-6 bg-white border border-black first:bg-red-200 last:bg-red-200"></div>
-	))}
-</div>
+	// Estila el primer y último elemento	
+	<div class="flex flex-wrap gap-2 my-4">
+		{[...Array(7)].map((_) => (
+			<div class="h-4 w-6 bg-white border border-black first:bg-red-200 last:bg-red-200"></div>
+		))}
+	</div>
 
-// Estila los elementos impares
-<div class="flex flex-wrap gap-2 my-4">
-	{[...Array(7)].map((_) => (
-		<div class="h-4 w-6 bg-white border border-black odd:bg-red-200" ></div>
-	))}
-</div>
+	// Estila los elementos impares
+	<div class="flex flex-wrap gap-2 my-4">
+		{[...Array(7)].map((_) => (
+			<div class="h-4 w-6 bg-white border border-black odd:bg-red-200" ></div>
+		))}
+	</div>
 
-// Estila los elementos pares
-<div class="flex flex-wrap gap-2 my-4">
-	{[...Array(7)].map((_) => (
-		<div class="h-4 w-6 bg-white border border-black even:bg-red-200"></div>
-	))}
-</div>
+	// Estila los elementos pares
+	<div class="flex flex-wrap gap-2 my-4">
+		{[...Array(7)].map((_) => (
+			<div class="h-4 w-6 bg-white border border-black even:bg-red-200"></div>
+		))}
+	</div>
 
-// Estila los tres primeros elementos
-<div class="flex flex-wrap gap-2 my-4 [&>*:nth-child(-n+3)]:bg-red-200">
-	{[...Array(7)].map((_) => (
-		<div class="h-4 w-6 bg-white border border-black" ></div>
-	))}
-</div>
+	// Estila los tres primeros elementos
+	<div class="flex flex-wrap gap-2 my-4 [&>*:nth-child(-n+3)]:bg-red-200">
+		{[...Array(7)].map((_) => (
+			<div class="h-4 w-6 bg-white border border-black" ></div>
+		))}
+	</div>
 	`} lang="js" theme="one-dark-pro"  />
 
 	<p>También podemos crear layouts interesantes con grid de esta forma.</p>
@@ -278,15 +278,14 @@ import Toggle from '../components/ThemeToggler.astro';
 	</div>
 
 	<Code code={`
-// Estila el primer elemento para ocupar todo el espacio
-<div class="grid gap-4 my-4">
-	{[...Array(3)].map((_) => (
-		<div
-		class="bg-white border border-black first:sm:col-span-2 first:sm:row-span-2 first:sm:bg-red-200 p-4"
-		>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam reiciendis voluptatum voluptate non dolorum odit excepturi vero. Ut, dolores perspiciatis? Culpa ad aspernatur accusantium quis autem reprehenderit voluptatem, odit et!</div>
-	))}
-</div>
-	
+	// Estila el primer elemento para ocupar todo el espacio
+	<div class="grid gap-4 my-4">
+		{[...Array(3)].map((_) => (
+			<div
+			class="bg-white border border-black first:sm:col-span-2 first:sm:row-span-2 first:sm:bg-red-200 p-4"
+			>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam reiciendis voluptatum voluptate non dolorum odit excepturi vero. Ut, dolores perspiciatis? Culpa ad aspernatur accusantium quis autem reprehenderit voluptatem, odit et!</div>
+		))}
+	</div>
 		`} lang="js" theme="one-dark-pro"  />
 
 	</section>
