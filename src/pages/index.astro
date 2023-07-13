@@ -434,8 +434,14 @@ import Toggle from '../components/ThemeToggler.astro';
 
 			<p>Desde la versión 3.3 de TailwindCSS podemos utilizar un atajo para gestionar ambas propiedades al mismo tiempo. De forma que los dos siguientes pedazos de código serían equivalentes.</p>
 
-			<div class="text-6xl leading leading-normal mb-4">Heading con las dos propiedades (version 1)</div>
+			<div class="text-6xl leading-normal mb-4">Heading con las dos propiedades (version 1)</div>
 			<div class="text-6xl/normal" >Heading con las dos propiedades (version 2)</div>
+
+			<Code code={`
+	<div class="text-6xl leading-normal mb-4">Heading con las dos propiedades (version 1)</div>
+	<div class="text-6xl/normal" >Heading con las dos propiedades (version 2)</div>
+					
+			`} lang="js" theme="one-dark-pro"  />
 
 		</section>
 
