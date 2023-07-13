@@ -17,40 +17,73 @@ import Toggle from '../components/ThemeToggler.astro';
 	</header>
 	<main>
 		
-	<section aria-label="Propiedades peer y accent-color">
+		<section aria-label="Propiedades peer y accent-color">
 
-		<Heading variant="h2" title="1. Propiedades 'peer:' y 'accent-color'" />
+			<Heading variant="h2" title="1. Propiedades 'peer:' y 'accent-color'" />
 
-		<p>Aquí podríamos hablar de la propiedad <code>peer</code> con la que podemos hacer algo dependiendo del estado del elemento hermano (sibling). En este caso fíjate cómo añadimos la negrita al contenido del <code>div</code> si el input está <code>checked</code>. También, es interesante comentar lo que hace la propiedad <code>accent-color</code> para estilar el los input de type="radio" o type="checkbox" por ejemplo.</p>
+			<p>Aquí podríamos hablar de la propiedad <code>peer</code> con la que podemos hacer algo dependiendo del estado del elemento hermano (sibling). En este caso fíjate cómo añadimos la negrita al contenido del <code>div</code> si el input está <code>checked</code>. También, es interesante comentar lo que hace la propiedad <code>accent-color</code> para estilar el los input de type="radio" o type="checkbox" por ejemplo.</p>
 
+			<fieldset class="accent-purple-600 my-6">
+				<legend class="text-md font-semibold mb-2">¿Conocías esto de Tailwind CSS?</legend>
+				<label class="flex gap-2">
+					<input
+						checked
+						type="radio"
+						name="option"
+						id="yes"
+						class="peer"
+					/>
+					<div class="peer-checked:font-bold">Sí</div>
+				</label>
+				<label class="flex gap-2">
+					<input
+						type="radio"
+						name="option"
+						id="no"
+						class="peer"
+					/>
+					<div class="peer-checked:font-bold">No</div>
+				</label>
+				<label class="flex gap-2">
+					<input
+						type="radio"
+						name="option"
+						id="maybe"
+						class="peer"
+					/>
+					<div class="peer-checked:font-bold">Me sonaba...</div>
+				</label>
+			</fieldset>
+
+			<fieldset class="accent-purple-600 my-4">
+				<legend class="text-md font-semibold mb-2">Lista de la compra</legend>
+				<div class="flex gap-2 items-center">
+					<input type="checkbox" name="coke" id="coke" checked />
+					<label for="coke">Coca Cola Zero</label>
+				</div>
+				<div class="flex gap-2 items-center">
+					<input type="checkbox" name="bread" id="bread" checked />
+					<label for="bread">Pan para el desayuno</label>
+				</div>
+				<div class="flex gap-2 items-center">
+					<input type="checkbox" name="hummus" id="hummus" />
+					<label for="hummus">Hummus</label>
+				</div>
+			</fieldset>
+
+			<Code code={`
 		<fieldset class="accent-purple-600 my-6">
 			<legend class="text-md font-semibold mb-2">¿Conocías esto de Tailwind CSS?</legend>
 			<label class="flex gap-2">
-				<input
-					checked
-					type="radio"
-					name="option"
-					id="yes"
-					class="peer"
-				/>
+				<input checked type="radio" name="option" id="yes" class="peer" />
 				<div class="peer-checked:font-bold">Sí</div>
 			</label>
 			<label class="flex gap-2">
-				<input
-					type="radio"
-					name="option"
-					id="no"
-					class="peer"
-				/>
+				<input type="radio" name="option" id="no" class="peer" />
 				<div class="peer-checked:font-bold">No</div>
 			</label>
 			<label class="flex gap-2">
-				<input
-					type="radio"
-					name="option"
-					id="maybe"
-					class="peer"
-				/>
+				<input type="radio" name="option" id="maybe" class="peer" />
 				<div class="peer-checked:font-bold">Me sonaba...</div>
 			</label>
 		</fieldset>
@@ -70,49 +103,51 @@ import Toggle from '../components/ThemeToggler.astro';
 				<label for="hummus">Hummus</label>
 			</div>
 		</fieldset>
+						`} lang="js" theme="one-dark-pro"  />
 
-		<Code code={`
-	<fieldset class="accent-purple-600 my-6">
-		<legend class="text-md font-semibold mb-2">¿Conocías esto de Tailwind CSS?</legend>
-		<label class="flex gap-2">
-			<input checked type="radio" name="option" id="yes" class="peer" />
-			<div class="peer-checked:font-bold">Sí</div>
-		</label>
-		<label class="flex gap-2">
-			<input type="radio" name="option" id="no" class="peer" />
-			<div class="peer-checked:font-bold">No</div>
-		</label>
-		<label class="flex gap-2">
-			<input type="radio" name="option" id="maybe" class="peer" />
-			<div class="peer-checked:font-bold">Me sonaba...</div>
-		</label>
-	</fieldset>
+		</section>
 
-	<fieldset class="accent-purple-600 my-4">
-		<legend class="text-md font-semibold mb-2">Lista de la compra</legend>
-		<div class="flex gap-2 items-center">
-			<input type="checkbox" name="coke" id="coke" checked />
-			<label for="coke">Coca Cola Zero</label>
-		</div>
-		<div class="flex gap-2 items-center">
-			<input type="checkbox" name="bread" id="bread" checked />
-			<label for="bread">Pan para el desayuno</label>
-		</div>
-		<div class="flex gap-2 items-center">
-			<input type="checkbox" name="hummus" id="hummus" />
-			<label for="hummus">Hummus</label>
-		</div>
-	</fieldset>
-					`} lang="js" theme="one-dark-pro"  />
+		<section aria-label="Propiedades has y group">
 
-	</section>
+			<Heading variant="h2" title="2. Propiedades 'group:' y 'has:'" />
 
-	<section aria-label="Propiedades has y group">
+			<p>Es cierto que por ahora podemos estilar el contenido de ciertos children al interactuar con el parent. A través de <code>group</code> podemos decir cuál va a ser el parent y luego hacer que algo suceda en hover o focus en alguno de los children, como es el caso del texto de la descripción de estas cards.</p>
 
-		<Heading variant="h2" title="2. Propiedades 'group:' y 'has:'" />
+			<fieldset class="my-6 accent-lime-600">
+				<legend class="text-md font-semibold mb-2">¿Qué camino quieres emprender?</legend>
+				<label for="frontend" class="flex items-start gap-x-4 bg-[var(--color-bg)] border border-black p-6 has-[:checked]:bg-indigo-500 group my-3">	
+					<div>
+						<input class="checked:ring-white" type="radio" name="path" id="frontend" checked />
+					</div>
+					<div>
+						<div class="font-semibold has-[:checked]:font-bold">Frontend</div>
+						<div class="group-hover:text-gray-500 group-focus-within:text-gray-500">El camino de aquellos amantes de una buena UI y experiencia de usuario.</div>
+					</div>
+				</label>
+				<label for="backend" class="flex items-start gap-x-4 bg-[var(--color-bg)] border border-black p-6 has-[:checked]:bg-indigo-500 group my-3">	
+					<div>
+						<input class="checked:ring-white" type="radio" name="path" id="backend" />
+					</div>
+					<div>
+						<div class="font-semibold has-[:checked]:font-bold">Backend</div>
+						<div class="group-hover:text-gray-500 group-focus-within:text-gray-500">Tu elección si te gusta la seguridad y robustez de unos datos bien mantenidos.</div>
+					</div>
+				</label>
+				<label for="technical" class="flex items-start gap-x-4 bg-[var(--color-bg)] border border-black p-6 has-[:checked]:bg-indigo-500 group my-3">	
+					<div>
+						<input class="checked:ring-white" type="radio" name="path" id="technical" />
+					</div>
+					<div>
+						<div class="font-semibold has-[:checked]:font-bold">Técnico</div>
+						<div class="group-hover:text-gray-500 group-focus-within:text-gray-500">Quiero hacer de las actualizaciones del AVAST una carrera profesional.</div>
+					</div>
+				</label>
+			</fieldset>
 
-		<p>Es cierto que por ahora podemos estilar el contenido de ciertos children al interactuar con el parent. A través de <code>group</code> podemos decir cuál va a ser el parent y luego hacer que algo suceda en hover o focus en alguno de los children, como es el caso del texto de la descripción de estas cards.</p>
+			<p>Lo que va a ser genial y está todavía en fase experimental, supongo porque Firefox todavía no lo ha aceptado del todo a julio de 2023, es el uso de <code>has</code>, ya que vamos a poder hacer justo lo contrario: <strong>estilar al parent dependiendo de lo que pase en uno de los children</strong>. Aquí te lo dejo en el código, pero teóricamente una vez se aplique, la carta seleccionada podrá tener un color de fondo.</p>
 
+			<Code code={`
+				
 		<fieldset class="my-6 accent-lime-600">
 			<legend class="text-md font-semibold mb-2">¿Qué camino quieres emprender?</legend>
 			<label for="frontend" class="flex items-start gap-x-4 bg-[var(--color-bg)] border border-black p-6 has-[:checked]:bg-indigo-500 group my-3">	
@@ -143,165 +178,147 @@ import Toggle from '../components/ThemeToggler.astro';
 				</div>
 			</label>
 		</fieldset>
+			`} lang="js" theme="one-dark-pro"  />
 
-		<p>Lo que va a ser genial y está todavía en fase experimental, supongo porque Firefox todavía no lo ha aceptado del todo a julio de 2023, es el uso de <code>has</code>, ya que vamos a poder hacer justo lo contrario: <strong>estilar al parent dependiendo de lo que pase en uno de los children</strong>. Aquí te lo dejo en el código, pero teóricamente una vez se aplique, la carta seleccionada podrá tener un color de fondo.</p>
+		</section>
 
-		<Code code={`
-			
-	<fieldset class="my-6 accent-lime-600">
-		<legend class="text-md font-semibold mb-2">¿Qué camino quieres emprender?</legend>
-		<label for="frontend" class="flex items-start gap-x-4 bg-[var(--color-bg)] border border-black p-6 has-[:checked]:bg-indigo-500 group my-3">	
-			<div>
-				<input class="checked:ring-white" type="radio" name="path" id="frontend" checked />
+		<section aria-label="Tamaño fluido de text dependiendo del view port">
+
+			<Heading variant="h2" title="3. Tamaño de texto fluido" />
+
+			<p>Queremos intentar no utilizar tantas media queries y utilizar el view port a nuestro favor para poder tener unos títulos la mar de responsive. Puedes comprobar lo que ocurre cuando intentas hacer un resize de esta página con los títulos.</p>
+
+			<p>Para ello, hemos podido hacer:</p>
+
+			<Code code={`
+		{variant === 'h1' && <h1 class={\`text-[6.5vw] leading-none font-bold mb-4 \${extraClasses}\`}>{title}</h1>}
+		{variant === 'h2' && <h2 class={\`text-[3vw] leading-none font-bold mb-4 \${extraClasses}\`}>{title}</h2>}
+			`} lang="js" theme="one-dark-pro"  />
+				
+
+		</section>
+
+		<section aria-label="Estilar dependiendo de la posición">
+
+			<Heading variant="h2" title="4. Estilar dependiendo de la posición" />
+
+			<p>Esta la sabes, pero muchas veces se nos olvida, y por eso no viene nada mal un buen recordatorio. Tenemos las clases para hacer <code>first:</code> <code>odd:</code> (posición impar), o <code>even:</code> (posición par) y poder crear una UI de la hostia. Incluso podemos hacer movidas para estilar solo los tres primeros elementos. Y todo solo con CSS/Tailwind, nada de JavaScript mirando index.</code></p>
+
+
+			<div class="flex flex-wrap gap-2 my-4">
+				{[...Array(7)].map((_) => (
+					<div
+						class="h-4 w-6 bg-white border border-black first:bg-red-200 last:bg-red-200"
+					></div>
+					))}
 			</div>
-			<div>
-				<div class="font-semibold has-[:checked]:font-bold">Frontend</div>
-				<div class="group-hover:text-gray-500 group-focus-within:text-gray-500">El camino de aquellos amantes de una buena UI y experiencia de usuario.</div>
+
+			<div class="flex flex-wrap gap-2 my-4">
+				{[...Array(7)].map((_) => (
+					<div
+						class="h-4 w-6 bg-white border border-black odd:bg-red-200"
+					></div>
+					))}
 			</div>
-		</label>
-		<label for="backend" class="flex items-start gap-x-4 bg-[var(--color-bg)] border border-black p-6 has-[:checked]:bg-indigo-500 group my-3">	
-			<div>
-				<input class="checked:ring-white" type="radio" name="path" id="backend" />
+
+			<div class="flex flex-wrap gap-2 my-4">
+				{[...Array(7)].map((_) => (
+					<div
+						class="h-4 w-6 bg-white border border-black even:bg-red-200"
+					></div>
+					))}
 			</div>
-			<div>
-				<div class="font-semibold has-[:checked]:font-bold">Backend</div>
-				<div class="group-hover:text-gray-500 group-focus-within:text-gray-500">Tu elección si te gusta la seguridad y robustez de unos datos bien mantenidos.</div>
+
+			<div class="flex flex-wrap gap-2 my-4 [&>*:nth-child(-n+3)]:bg-red-200">
+				{[...Array(7)].map((_) => (
+					<div
+						class="h-4 w-6 bg-white border border-black"
+					></div>
+					))}
 			</div>
-		</label>
-		<label for="technical" class="flex items-start gap-x-4 bg-[var(--color-bg)] border border-black p-6 has-[:checked]:bg-indigo-500 group my-3">	
-			<div>
-				<input class="checked:ring-white" type="radio" name="path" id="technical" />
-			</div>
-			<div>
-				<div class="font-semibold has-[:checked]:font-bold">Técnico</div>
-				<div class="group-hover:text-gray-500 group-focus-within:text-gray-500">Quiero hacer de las actualizaciones del AVAST una carrera profesional.</div>
-			</div>
-		</label>
-	</fieldset>
-		`} lang="js" theme="one-dark-pro"  />
 
-	</section>
-
-	<section aria-label="Tamaño fluido de text dependiendo del view port">
-
-		<Heading variant="h2" title="3. Tamaño de texto fluido" />
-
-		<p>Queremos intentar no utilizar tantas media queries y utilizar el view port a nuestro favor para poder tener unos títulos la mar de responsive. Puedes comprobar lo que ocurre cuando intentas hacer un resize de esta página con los títulos.</p>
-
-		<p>Para ello, hemos podido hacer:</p>
-
-		<Code code={`
-	{variant === 'h1' && <h1 class={\`text-[6.5vw] leading-none font-bold mb-4 \${extraClasses}\`}>{title}</h1>}
-	{variant === 'h2' && <h2 class={\`text-[3vw] leading-none font-bold mb-4 \${extraClasses}\`}>{title}</h2>}
-		`} lang="js" theme="one-dark-pro"  />
-			
-
-	</section>
-
-	<section aria-label="Estilar dependiendo de la posición">
-
-		<Heading variant="h2" title="4. Estilar dependiendo de la posición" />
-
-		<p>Esta la sabes, pero muchas veces se nos olvida, y por eso no viene nada mal un buen recordatorio. Tenemos las clases para hacer <code>first:</code> <code>odd:</code> (posición impar), o <code>even:</code> (posición par) y poder crear una UI de la hostia. Incluso podemos hacer movidas para estilar solo los tres primeros elementos. Y todo solo con CSS/Tailwind, nada de JavaScript mirando index.</code></p>
-
-
+			<Code code={`
+		// Estila el primer y último elemento	
 		<div class="flex flex-wrap gap-2 my-4">
 			{[...Array(7)].map((_) => (
-				<div
-					class="h-4 w-6 bg-white border border-black first:bg-red-200 last:bg-red-200"
-				></div>
-				))}
+				<div class="h-4 w-6 bg-white border border-black first:bg-red-200 last:bg-red-200"></div>
+			))}
 		</div>
 
+		// Estila los elementos impares
 		<div class="flex flex-wrap gap-2 my-4">
 			{[...Array(7)].map((_) => (
-				<div
-					class="h-4 w-6 bg-white border border-black odd:bg-red-200"
-				></div>
-				))}
+				<div class="h-4 w-6 bg-white border border-black odd:bg-red-200" ></div>
+			))}
 		</div>
 
+		// Estila los elementos pares
 		<div class="flex flex-wrap gap-2 my-4">
 			{[...Array(7)].map((_) => (
-				<div
-					class="h-4 w-6 bg-white border border-black even:bg-red-200"
-				></div>
-				))}
+				<div class="h-4 w-6 bg-white border border-black even:bg-red-200"></div>
+			))}
 		</div>
 
+		// Estila los tres primeros elementos
 		<div class="flex flex-wrap gap-2 my-4 [&>*:nth-child(-n+3)]:bg-red-200">
 			{[...Array(7)].map((_) => (
+				<div class="h-4 w-6 bg-white border border-black" ></div>
+			))}
+		</div>
+		`} lang="js" theme="one-dark-pro"  />
+
+		<p>También podemos crear layouts interesantes con grid de esta forma.</p>
+					
+		<div class="grid gap-4 my-4">
+			{[...Array(3)].map((_) => (
 				<div
-					class="h-4 w-6 bg-white border border-black"
-				></div>
-				))}
+				class="bg-[var(--color-bg)] border border-black first:sm:col-span-2 first:sm:row-span-2 first:sm:bg-red-200 first:sm:text-black p-4"
+				>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam reiciendis voluptatum voluptate non dolorum odit excepturi vero. Ut, dolores perspiciatis? Culpa ad aspernatur accusantium quis autem reprehenderit voluptatem, odit et!</div>
+			))}
 		</div>
 
 		<Code code={`
-	// Estila el primer y último elemento	
-	<div class="flex flex-wrap gap-2 my-4">
-		{[...Array(7)].map((_) => (
-			<div class="h-4 w-6 bg-white border border-black first:bg-red-200 last:bg-red-200"></div>
-		))}
-	</div>
+		// Estila el primer elemento para ocupar todo el espacio
+		<div class="grid gap-4 my-4">
+			{[...Array(3)].map((_) => (
+				<div
+				class="bg-white border border-black first:sm:col-span-2 first:sm:row-span-2 first:sm:bg-red-200 p-4"
+				>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam reiciendis voluptatum voluptate non dolorum odit excepturi vero. Ut, dolores perspiciatis? Culpa ad aspernatur accusantium quis autem reprehenderit voluptatem, odit et!</div>
+			))}
+		</div>
+			`} lang="js" theme="one-dark-pro"  />
 
-	// Estila los elementos impares
-	<div class="flex flex-wrap gap-2 my-4">
-		{[...Array(7)].map((_) => (
-			<div class="h-4 w-6 bg-white border border-black odd:bg-red-200" ></div>
-		))}
-	</div>
+		</section>
 
-	// Estila los elementos pares
-	<div class="flex flex-wrap gap-2 my-4">
-		{[...Array(7)].map((_) => (
-			<div class="h-4 w-6 bg-white border border-black even:bg-red-200"></div>
-		))}
-	</div>
+		<section aria-label="Container Queries">
 
-	// Estila los tres primeros elementos
-	<div class="flex flex-wrap gap-2 my-4 [&>*:nth-child(-n+3)]:bg-red-200">
-		{[...Array(7)].map((_) => (
-			<div class="h-4 w-6 bg-white border border-black" ></div>
-		))}
-	</div>
-	`} lang="js" theme="one-dark-pro"  />
+			<Heading variant="h2" title="5. Container Queries" />
 
-	<p>También podemos crear layouts interesantes con grid de esta forma.</p>
-				
-	<div class="grid gap-4 my-4">
-		{[...Array(3)].map((_) => (
-			<div
-			class="bg-[var(--color-bg)] border border-black first:sm:col-span-2 first:sm:row-span-2 first:sm:bg-red-200 first:sm:text-black p-4"
-			>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam reiciendis voluptatum voluptate non dolorum odit excepturi vero. Ut, dolores perspiciatis? Culpa ad aspernatur accusantium quis autem reprehenderit voluptatem, odit et!</div>
-		))}
-	</div>
+			<p>Por mucho que intentemos huir de ellas, las <code>container queries</code>  ya están aquí, y en verdad, tienen bastante sentido. Echémosle un vistazo al siguiente componente en el que podemos hacer cambios dependiendo del espacio que ocupe. Por ahora hay que instalar el plugin <code>@tailwindcss/container-queries</code>, ¡pero ojalá se incorpore de forma nativa pronto!</p>
 
-	<Code code={`
-	// Estila el primer elemento para ocupar todo el espacio
-	<div class="grid gap-4 my-4">
-		{[...Array(3)].map((_) => (
-			<div
-			class="bg-white border border-black first:sm:col-span-2 first:sm:row-span-2 first:sm:bg-red-200 p-4"
-			>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam reiciendis voluptatum voluptate non dolorum odit excepturi vero. Ut, dolores perspiciatis? Culpa ad aspernatur accusantium quis autem reprehenderit voluptatem, odit et!</div>
-		))}
-	</div>
-		`} lang="js" theme="one-dark-pro"  />
+			<div class="grid gap-4 my-4 ">
+				{[...Array(3)].map((_) => (
+					<div class="@container bg-[var(--color-bg)] border border-black first:sm:col-span-2 first:sm:row-span-2 p-4">
+						<div class="@lg:font-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam reiciendis voluptatum voluptate non dolorum odit excepturi vero. Ut, dolores perspiciatis? Culpa ad aspernatur accusantium quis autem reprehenderit voluptatem, odit et!</div>
+						<figure class="hidden @xl:flex @xl:gap-2 @xl:items-center my-4">
+							<img class="w-12 h-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="guy" />
+							<figcaption class="flex flex-col">
+								<span class="text-xs">Paco Sánchez</span>
+								<span class="text-xs">Entusiasta web</span>
+							</figcaption>
+						</figure>
+					</div>
+				))}
+			</div>
 
-	</section>
-
-	<section aria-label="Container Queries">
-
-		<Heading variant="h2" title="5. Container Queries" />
-
-		<p>Por mucho que intentemos huir de ellas, las <code>container queries</code>  ya están aquí, y en verdad, tienen bastante sentido. Echémosle un vistazo al siguiente componente en el que podemos hacer cambios dependiendo del espacio que ocupe. Por ahora hay que instalar el plugin <code>@tailwindcss/container-queries</code>, ¡pero ojalá se incorpore de forma nativa pronto!</p>
-
+			<Code code={`
+		// El elemento más grande desplegará la imagen y el nombre, además del texto en negrita
 		<div class="grid gap-4 my-4 ">
 			{[...Array(3)].map((_) => (
 				<div class="@container bg-[var(--color-bg)] border border-black first:sm:col-span-2 first:sm:row-span-2 p-4">
 					<div class="@lg:font-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam reiciendis voluptatum voluptate non dolorum odit excepturi vero. Ut, dolores perspiciatis? Culpa ad aspernatur accusantium quis autem reprehenderit voluptatem, odit et!</div>
 					<figure class="hidden @xl:flex @xl:gap-2 @xl:items-center my-4">
-						<img class="w-12 h-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="guy" />
+						<img class="w-12 h-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="guy">
 						<figcaption class="flex flex-col">
 							<span class="text-xs">Paco Sánchez</span>
 							<span class="text-xs">Entusiasta web</span>
@@ -311,54 +328,120 @@ import Toggle from '../components/ThemeToggler.astro';
 			))}
 		</div>
 
-		<Code code={`
-	// El elemento más grande desplegará la imagen y el nombre, además del texto en negrita
-	<div class="grid gap-4 my-4 ">
-		{[...Array(3)].map((_) => (
-			<div class="@container bg-[var(--color-bg)] border border-black first:sm:col-span-2 first:sm:row-span-2 p-4">
-				<div class="@lg:font-bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam reiciendis voluptatum voluptate non dolorum odit excepturi vero. Ut, dolores perspiciatis? Culpa ad aspernatur accusantium quis autem reprehenderit voluptatem, odit et!</div>
-				<figure class="hidden @xl:flex @xl:gap-2 @xl:items-center my-4">
-					<img class="w-12 h-12 rounded-full object-cover" src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="guy">
-					<figcaption class="flex flex-col">
-						<span class="text-xs">Paco Sánchez</span>
-						<span class="text-xs">Entusiasta web</span>
-					</figcaption>
-				</figure>
-			</div>
-		))}
-	</div>
-
-	`} lang="js" theme="one-dark-pro"  />
-
-	</section>
-
-	<section aria-label="Grid Masonry">
-
-		<Heading variant="h2" title="6. Grid Masonry" />
-
-		<p>Esto no necesita mucha descripción. Pronto vamos a poder ser capaces de utilizar la propiedad <code>grid-rows-[masonry]</code> para poder crear este tipo de layout de una forma sencilla. Fuera quebraderos de cabeza y librerías externas. ¡Vendrá más pronto que tarde!</p>
-
-	</section>
-
-	<section aria-label="Text Balance">
-
-		<Heading variant="h2" title="7. Text Balance" />
-
-		<p>Esto va a estar genial el día que esté aceptado en todos los navegadores, ya que <strong>por el momento no es así ni en Safari ni en Chrome a julio de 2023</strong>. Se trata de una forma de distribuir el espacio del texto y hacer los saltos de línea de forma que el texto quede visualmente bien. Por el momento no funciona, pero llegará...</p>
-
-		<h3 class="text-balance text-7xl text-center font-bold my-6">Este texto debería verse bien en las dos resoluciones</h3>
-
-		<Code code={`
-	<h3 class="text-balance text-4xl font-bold my-6">Este texto debería verse bien en las dos resoluciones</h3>
 		`} lang="js" theme="one-dark-pro"  />
 
+		</section>
+
+		<section aria-label="Grid Masonry">
+
+			<Heading variant="h2" title="6. Grid Masonry" />
+
+			<p>Esto no necesita mucha descripción. Pronto vamos a poder ser capaces de utilizar la propiedad <code>grid-rows-[masonry]</code> para poder crear este tipo de layout de una forma sencilla. Fuera quebraderos de cabeza y librerías externas. ¡Vendrá más pronto que tarde!</p>
+
+		</section>
+
+		<section aria-label="Text Balance">
+
+			<Heading variant="h2" title="7. Text Balance" />
+
+			<p>Esto va a estar genial el día que esté aceptado en todos los navegadores, ya que <strong>por el momento no es así ni en Safari ni en Chrome a julio de 2023</strong>. Se trata de una forma de distribuir el espacio del texto y hacer los saltos de línea de forma que el texto quede visualmente bien. Por el momento no funciona, pero llegará...</p>
+
+			<h3 class="text-balance text-7xl text-center font-bold my-6">Este texto debería verse bien en las dos resoluciones</h3>
+
+			<Code code={`
+		<h3 class="text-balance text-4xl font-bold my-6">Este texto debería verse bien en las dos resoluciones</h3>
+			`} lang="js" theme="one-dark-pro"  />
 
 
-	</section>
+
+		</section>
+
+		<section aria-label="Line clamp">
+
+			<Heading variant="h2" title="8. Máximo número de líneas con line-clamp" />
+
+			<p>La propiedad line-clamp en CSS es superútil cuando no queremos que el contenido exceda un cierto número de líneas para así mantener una estética coherente y ordenada. Por ejemplo, supongamos que tenemos los siguientes elementos con nombres y direcciones de correo de las personas.</p>
+
+			<ul class="flex flex-wrap gap-4">
+				<li class="flex gap-2 border border-[--color-text] rounded-sm py-2 px-4 items-center w-[300px]">
+
+					<img class="rounded-full w-16 h-16 min-w-[4rem] min-h-[4rem] object-cover" src="https://www.manuelsanchezweb.com/img/manuel-keyboard.svg" alt="manuel sanchez">
+
+					<div class="flex flex-col gap-4">
+						<div>
+							<div>Manuel Sánchez</div>
+							<div class="text-xs">Creador de contenido</div>
+						</div>
+	
+						<a class="text-xs" href="mailto:manuelsanweb@gmail.com">manuelsanweb@gmail.com</a>
+					</div>
+				
+				</li>
+
+				<li class="flex gap-2 border border-[--color-text] rounded-sm py-2 px-4 items-center w-[300px]">
+
+					<img class="rounded-full w-16 h-16 min-w-[4rem] min-h-[4rem] object-cover" src="https://images.unsplash.com/photo-1531891437562-4301cf35b7e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1064&q=80" alt="fernando von hildegaard von der Wohnung">
+
+					<div class="flex flex-col gap-4">
+						<div>
+							<div class="line-clamp-1">Fernando von Hildegaard von der Wohnung</div>
+							<div class="text-xs">Recursos Humanos</div>
+						</div>
+	
+						<a class="text-xs line-clamp-1" href="mailto:manuelsanweb@gmail.com">fernandovonhildegaardamhafen@gmail.com</a>
+					</div>
+				
+				</li>
+
+			</ul>
+
+		</section>
+
+		<section aria-label="Gradient">
+
+			<Heading variant="h2" title="9. Crear gradients con from, via y to" />
+
+			<p>Como todos sabemos, los gradientes son una forma muy buena para darle vida y profundidad a los diseños. Son muy versátiles: pueden ser sutiles o atrevidos, lineales o radiales, y pueden tener tantos colores como desees. Con Tailwind podemos controlar la dirección, los colores y las posiciones de los puntos de parada de los gradientes directamente desde las clases en el HTML.</p>
+
+			<button class="mb-4 w-64 h-10 text-white bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-500 hover:to-blue-500 transition duration-500 ease-in-out">
+				Botón con gradiente
+			  </button>
+
+			  <Code code={`
+	<button class="mb-4 w-64 h-10 text-white bg-gradient-to-r from-blue-500 to-purple-500 hover:from-purple-500 hover:to-blue-500 transition duration-500 ease-in-out">
+		Botón con gradiente
+	</button>
+					
+			`} lang="js" theme="one-dark-pro"  />
+
+			<Heading variant="h3" title="Gradient lineal con 3 puntos" extraClasses='my-4' />
+
+			<div class="w-full h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 min-h-[300px] my-6"></div>
+
+
+			<Code code={`
+	<div class="w-full h-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 min-h-[300px] my-6"></div>
+		
+			`} lang="js" theme="one-dark-pro"  />
+
+			<p>Si quieres profundizar en el tema, échale un vistazo <a target="_blank" rel="noopener noreferrer" href="https://tailwindcss.com/docs/gradient-color-stops">a esa parte de la documentación en la página de TailwindCSS</a> , ya que se pueden hacer un montón de movidas como usar porcentajes para tener un control total de los intervalos de los gradientes.</p>
+
+		</section>
+
+		<section aria-label="Atajo para font-size y line-height">
+
+			<Heading variant="h2" title="10. Atajo para font-size y line-height" />
+
+			<p>Desde la versión 3.3 de TailwindCSS podemos utilizar un atajo para gestionar ambas propiedades al mismo tiempo. De forma que los dos siguientes pedazos de código serían equivalentes.</p>
+
+			<div class="text-6xl leading leading-normal mb-4">Heading con las dos propiedades (version 1)</div>
+			<div class="text-6xl/normal" >Heading con las dos propiedades (version 2)</div>
+
+		</section>
 
 	</main>
 
 	<footer>
-		Si te gusta el contenido que estás viendo, puedes seguirme en <a target="_blank" rel="nofollow noopener" title="Canal de YouTube de manuelsanchezweb" href="https://www.youtube.com/channel/UCX3IE_OjG20p_AwbX06YAEg">mi canal de YouTube</a>  o <a href="https://www.manuelsanchezweb.com/" target="_blank" rel="nofollow noopener">abonarte a mi newsletter</a> , para estar al tanto de las novedades que voy publicando.
+		Si te gusta el contenido que estás viendo, puedes seguirme en <a target="_blank" rel="nofollow noopener" title="Canal de YouTube de manuelsanchezweb" href="https://www.youtube.com/channel/UCX3IE_OjG20p_AwbX06YAEg">mi canal de YouTube</a> o <a href="https://www.manuelsanchezweb.com/" target="_blank" rel="nofollow noopener">abonarte a mi newsletter</a>, para estar al tanto de las novedades que voy publicando.
 	</footer>
 </Layout>
