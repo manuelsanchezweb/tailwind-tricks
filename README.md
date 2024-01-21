@@ -4,7 +4,6 @@
 
 # Cosas Que Puede Que No Sepas Que Puedes Hacer Con TailwindCSS
 
-Deploy [aquí](https://tailwind-tricks.vercel.app/)
+Deploy por [aquí](https://tailwind-tricks.vercel.app/)
 
 </div>
-
