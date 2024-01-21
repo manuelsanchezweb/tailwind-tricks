@@ -7,14 +7,25 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg">
 		<meta name="generator" content="Astro v2.8.0">
 		<title>Tailwind Tricks</title>
-	<link rel="stylesheet" href="/_astro/index.fe2f095d.css" /><script type="module">const t=document.querySelector('.theme-switch input[type="checkbox"]'),e=localStorage.getItem("theme");e&&(document.documentElement.setAttribute("data-theme",e),e==="dark"&&(t.checked=!0));function m(c){c.target.checked?(document.documentElement.setAttribute("data-theme","dark"),localStorage.setItem("theme","dark")):(document.documentElement.setAttribute("data-theme","light"),localStorage.setItem("theme","light"))}t.addEventListener("change",m,!1);
+	<link rel="stylesheet" href="/_astro/index.96d18c51.css" /><script type="module">const t=document.querySelector('.theme-switch input[type="checkbox"]'),e=localStorage.getItem("theme");e&&(document.documentElement.setAttribute("data-theme",e),e==="dark"&&(t.checked=!0));function m(c){c.target.checked?(document.documentElement.setAttribute("data-theme","dark"),localStorage.setItem("theme","dark")):(document.documentElement.setAttribute("data-theme","light"),localStorage.setItem("theme","light"))}t.addEventListener("change",m,!1);
 </script></head>
 	<body>
 		
-	<header class="flex flex-col items-center justify-center mx-auto md:flex-row md:justify-between md:items-start my-6 w-full py-6">
+	<div class="bg-red-600 text-black font-bold w-full top-0 left-0 text-center p-4 hidden lg:fixed lg:block">
+		Novedad: 'text-wrap: balance' y 'has' tienen un mayor soporte en los navegadores principales  🚀
+	</div>
+
+	<header class="flex flex-col items-center justify-center mx-auto md:flex-row md:justify-between md:items-start my-12 w-full py-6">
 		<figure class="mx-auto w-full flex flex-col items-center md:items-start">
 			<img width="300" height="250" src="./logo.png" alt="Logo Tailwind Tricks">
-			<figcaption class="my-4 text-md">Cosas que igual no sabías de Tailwind</figcaption>
+			<figcaption class="my-4 text-md">
+				<h1 class="text-[3.5vw] leading-none font-bold mb-4 undefined">Cosas que igual no sabías de Tailwind</h1>
+
+
+
+
+
+			</figcaption>
 		</figure>
 
 		<div class="theme-switch-wrapper astro-EF2QS43U">
@@ -40,11 +51,46 @@
 </div>
 	</header>
 	<main>
+
+		<section aria-label="Novedad con selector has">
+
+			
+<h2 class="text-[2vw] leading-none font-bold mb-4 undefined">Novedad: &#39;has&#39; ha sido aceptado por todos los navegadores principales (&gt;90% compatibilidad)</h2>
+
+
+
+
+
+			<p>La propiedad <code>has</code> ha sido aceptada por todos los navegadores principales, por lo que ya podemos utilizarla sin miedo. Esta propiedad nos permite estilar el parent dependiendo de lo que pase en uno de los children. Por ejemplo, podemos estilar el <code>label</code> de un <code>input</code> cuando el <code>input</code> está <code>checked</code> como veremos en uno de los ejemplos más abajo, pero hay más.</p>
+
+			<pre class="astro-code one-dark-pro" style="background-color: #282c34; overflow-x: auto;"" tabindex="0"><code><span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;[&amp;:has(h3)]:border [&amp;:has(h3)]:p-4&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	&lt;</span><span style="color: #E06C75">h3</span><span style="color: #ABB2BF">&gt;Esto es un h3&lt;/</span><span style="color: #E06C75">h3</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	&lt;</span><span style="color: #E06C75">p</span><span style="color: #ABB2BF">&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quod dignissimos, cupiditate et doloremque quam ipsa similique! Aut aliquam odit suscipit vel quaerat magnam architecto necessitatibus ad nulla! Possimus, error?&lt;/</span><span style="color: #E06C75">p</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;[&amp;:has(h3)]:border&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	&lt;</span><span style="color: #E06C75">p</span><span style="color: #ABB2BF">&gt;Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quod dignissimos, cupiditate et doloremque quam ipsa similique! Aut aliquam odit suscipit vel quaerat magnam architecto necessitatibus ad nulla! Possimus, error?&lt;/</span><span style="color: #E06C75">p</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">								</span></span></code></pre>
+
+								<p>Esto nos dará algo como lo siguiente.</p>
+
+			<div class="[&:has(h3)]:border [&:has(h3)]:p-4">
+				<h3>Esto es un h3</h3>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quod dignissimos, cupiditate et doloremque quam ipsa similique! Aut aliquam odit suscipit vel quaerat magnam architecto necessitatibus ad nulla! Possimus, error?</p>
+			</div>
+			<div class="[&:has(h3)]:border">
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus quod dignissimos, cupiditate et doloremque quam ipsa similique! Aut aliquam odit suscipit vel quaerat magnam architecto necessitatibus ad nulla! Possimus, error?</p>
+			</div>
+
+		</section>
+
+		<hr>
 		
 		<section aria-label="Propiedades peer y accent-color">
 
 			
-<h2 class="text-[3vw] leading-none font-bold mb-4 undefined">1. Propiedades &#39;peer:&#39; y &#39;accent-color&#39;</h2>
+<h2 class="text-[2vw] leading-none font-bold mb-4 undefined">1. Propiedades &#39;peer:&#39; y &#39;accent-color&#39;</h2>
 
 
 
@@ -118,12 +164,79 @@
 <span class="line"><span style="color: #ABB2BF">		&lt;/</span><span style="color: #E06C75">fieldset</span><span style="color: #ABB2BF">&gt;</span></span>
 <span class="line"><span style="color: #ABB2BF">						</span></span></code></pre>
 
+
+			<p>También podríamos usar <code>peer</code>para hacer unas cuantas validaciones de imputs en el Frontend (pero recuerda que esto no debe sustituir sino complementar a la validación desde el servidor)</p>
+
+			<div class="my-12 p-4 bg-black">
+				<form class="shadow-lg rounded-md p-5 md:p-10 flex flex-col w-11/12 max-w-lg group gap-6" novalidate>
+
+					<label for="email">
+						<div class="text-white mb-5">Email</div>
+						<input type="email" name="email" id="email" class="invalid:[&:not(:placeholder-shown):not(:focus)]:outline-red-500 invalid:[&:not(:placeholder-shown):not(:focus)]:outline peer w-full py-2 px-3 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder=" " required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$">
+						<span class="mt-2 hidden text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
+							Please enter a valid email address
+						</span>
+				  	</label>
+				  	<label for="password">
+						<div class="text-white mb-5">Password</div>
+						<input type="password" name="password" id="password" class="invalid:[&:not(:placeholder-shown):not(:focus)]:outline-red-500 invalid:[&:not(:placeholder-shown):not(:focus)]:outline peer w-full py-2 px-3 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" placeholder=" " required pattern=".{7,}">
+						<span class="mt-2 hidden text-sm text-red-500 peer-[&:not(:placeholder-shown):not(:focus):invalid]:block">
+							Please enter a valid password with a minimum of 7 characters
+						</span>
+				  	</label>
+		
+					<button type="submit" class="text-white group-invalid:pointer-events-none group-invalid:opacity-30 border border-white py-2 my-3">Submit</button>
+				</form>
+			</div>
+
+			<pre class="astro-code one-dark-pro" style="background-color: #282c34; overflow-x: auto;"" tabindex="0"><code><span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;p-4 bg-black&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	&lt;</span><span style="color: #E06C75">form</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;shadow-lg rounded-md p-5 md:p-10 flex flex-col w-11/12 max-w-lg group gap-6&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">novalidate</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">		&lt;</span><span style="color: #E06C75">label</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">for</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;email&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">			&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;text-white mb-5&quot;</span><span style="color: #ABB2BF">&gt;Email&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">			&lt;</span><span style="color: #E06C75">input</span></span>
+<span class="line"><span style="color: #ABB2BF">			</span><span style="color: #D19A66; font-style: italic">type</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;email&quot;</span></span>
+<span class="line"><span style="color: #ABB2BF">			</span><span style="color: #D19A66; font-style: italic">name</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;email&quot;</span></span>
+<span class="line"><span style="color: #ABB2BF">			</span><span style="color: #D19A66; font-style: italic">id</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;email&quot;</span></span>
+<span class="line"><span style="color: #ABB2BF">			</span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;invalid:[&amp;:not(:placeholder-shown):not(:focus)]:outline-red-500 invalid:[&amp;:not(:placeholder-shown):not(:focus)]:outline peer w-full py-2 px-3 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50&quot;</span></span>
+<span class="line"><span style="color: #ABB2BF">			</span><span style="color: #D19A66; font-style: italic">placeholder</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot; &quot;</span></span>
+<span class="line"><span style="color: #ABB2BF">			</span><span style="color: #D19A66; font-style: italic">required</span></span>
+<span class="line"><span style="color: #ABB2BF">			</span><span style="color: #D19A66; font-style: italic">pattern</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;[a-z0-9._%+-]+@[a-z0-9.-]+.[a-z]{2,}$&quot;</span></span>
+<span class="line"><span style="color: #ABB2BF">			/&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">			&lt;</span><span style="color: #E06C75">span</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;mt-2 hidden text-sm text-red-500 peer-[&amp;:not(:placeholder-shown):not(:focus):invalid]:block&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">				Please enter a valid email address</span></span>
+<span class="line"><span style="color: #ABB2BF">			&lt;/</span><span style="color: #E06C75">span</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">		&lt;/</span><span style="color: #E06C75">label</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">		&lt;</span><span style="color: #E06C75">label</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">for</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;password&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">			&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;text-white mb-5&quot;</span><span style="color: #ABB2BF">&gt;Password&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">			&lt;</span><span style="color: #E06C75">input</span></span>
+<span class="line"><span style="color: #ABB2BF">			</span><span style="color: #D19A66; font-style: italic">type</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;password&quot;</span></span>
+<span class="line"><span style="color: #ABB2BF">			</span><span style="color: #D19A66; font-style: italic">name</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;password&quot;</span></span>
+<span class="line"><span style="color: #ABB2BF">			</span><span style="color: #D19A66; font-style: italic">id</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;password&quot;</span></span>
+<span class="line"><span style="color: #ABB2BF">			</span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;invalid:[&amp;:not(:placeholder-shown):not(:focus)]:outline-red-500 invalid:[&amp;:not(:placeholder-shown):not(:focus)]:outline peer w-full py-2 px-3 rounded-md border-gray-300 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50&quot;</span></span>
+<span class="line"><span style="color: #ABB2BF">			</span><span style="color: #D19A66; font-style: italic">placeholder</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot; &quot;</span></span>
+<span class="line"><span style="color: #ABB2BF">			</span><span style="color: #D19A66; font-style: italic">required</span></span>
+<span class="line"><span style="color: #ABB2BF">			</span><span style="color: #D19A66; font-style: italic">pattern</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;.{7,}&quot;</span></span>
+<span class="line"><span style="color: #ABB2BF">			/&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">			&lt;</span><span style="color: #E06C75">span</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;mt-2 hidden text-sm text-red-500 peer-[&amp;:not(:placeholder-shown):not(:focus):invalid]:block&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">				Please enter a valid password with a minimum of 7 characters</span></span>
+<span class="line"><span style="color: #ABB2BF">			&lt;/</span><span style="color: #E06C75">span</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">		&lt;/</span><span style="color: #E06C75">label</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color: #ABB2BF">		&lt;</span><span style="color: #E06C75">button</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">type</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;submit&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;text-white group-invalid:pointer-events-none group-invalid:opacity-30 border border-white py-2 my-3&quot;</span><span style="color: #ABB2BF">&gt;Submit&lt;/</span><span style="color: #E06C75">button</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">	&lt;/</span><span style="color: #E06C75">form</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
+<span class="line"><span style="color: #ABB2BF">								</span></span></code></pre>
+
+			
+
 		</section>
 
 		<section aria-label="Propiedades has y group">
 
 			
-<h2 class="text-[3vw] leading-none font-bold mb-4 undefined">2. Propiedades &#39;group:&#39; y &#39;has:&#39;</h2>
+<h2 class="text-[2vw] leading-none font-bold mb-4 undefined">2. Propiedades &#39;group:&#39; y &#39;has:&#39;</h2>
 
 
 
@@ -133,7 +246,7 @@
 
 			<fieldset class="my-6 accent-lime-600">
 				<legend class="text-md font-semibold mb-2">¿Qué camino quieres emprender?</legend>
-				<label for="frontend" class="flex items-start gap-x-4 bg-[var(--color-bg)] border border-black p-6 has-[:checked]:bg-indigo-500 group my-3">	
+				<label for="frontend" class="flex items-start gap-x-4 bg-[var(--color-bg)] border border-black p-6 [&:has(:checked)]:bg-indigo-200 group my-3">	
 					<div>
 						<input class="checked:ring-white" type="radio" name="path" id="frontend" checked>
 					</div>
@@ -142,7 +255,7 @@
 						<div class="group-hover:text-gray-500 group-focus-within:text-gray-500">El camino de aquellos amantes de una buena UI y experiencia de usuario.</div>
 					</div>
 				</label>
-				<label for="backend" class="flex items-start gap-x-4 bg-[var(--color-bg)] border border-black p-6 has-[:checked]:bg-indigo-500 group my-3">	
+				<label for="backend" class="flex items-start gap-x-4 bg-[var(--color-bg)] border border-black p-6 [&:has(:checked)]:bg-indigo-200 group my-3">	
 					<div>
 						<input class="checked:ring-white" type="radio" name="path" id="backend">
 					</div>
@@ -151,7 +264,7 @@
 						<div class="group-hover:text-gray-500 group-focus-within:text-gray-500">Tu elección si te gusta la seguridad y robustez de unos datos bien mantenidos.</div>
 					</div>
 				</label>
-				<label for="technical" class="flex items-start gap-x-4 bg-[var(--color-bg)] border border-black p-6 has-[:checked]:bg-indigo-500 group my-3">	
+				<label for="technical" class="flex items-start gap-x-4 bg-[var(--color-bg)] border border-black p-6 [&:has(:checked)]:bg-indigo-200 group my-3">	
 					<div>
 						<input class="checked:ring-white" type="radio" name="path" id="technical">
 					</div>
@@ -168,7 +281,7 @@
 <span class="line"><span style="color: #ABB2BF">				</span></span>
 <span class="line"><span style="color: #ABB2BF">		&lt;</span><span style="color: #E06C75">fieldset</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;my-6 accent-lime-600&quot;</span><span style="color: #ABB2BF">&gt;</span></span>
 <span class="line"><span style="color: #ABB2BF">			&lt;</span><span style="color: #E06C75">legend</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;text-md font-semibold mb-2&quot;</span><span style="color: #ABB2BF">&gt;¿Qué camino quieres emprender?&lt;/</span><span style="color: #E06C75">legend</span><span style="color: #ABB2BF">&gt;</span></span>
-<span class="line"><span style="color: #ABB2BF">			&lt;</span><span style="color: #E06C75">label</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">for</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;frontend&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;flex items-start gap-x-4 bg-[var(--color-bg)] border border-black p-6 has-[:checked]:bg-indigo-500 group my-3&quot;</span><span style="color: #ABB2BF">&gt;	</span></span>
+<span class="line"><span style="color: #ABB2BF">			&lt;</span><span style="color: #E06C75">label</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">for</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;frontend&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;flex items-start gap-x-4 bg-[var(--color-bg)] border border-black p-6 [&amp;:has(:checked)]:bg-indigo-200 group my-3&quot;</span><span style="color: #ABB2BF">&gt;	</span></span>
 <span class="line"><span style="color: #ABB2BF">				&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
 <span class="line"><span style="color: #ABB2BF">					&lt;</span><span style="color: #E06C75">input</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;checked:ring-white&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">type</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;radio&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">name</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;path&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">id</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;frontend&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">checked</span><span style="color: #ABB2BF"> /&gt;</span></span>
 <span class="line"><span style="color: #ABB2BF">				&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
@@ -177,7 +290,7 @@
 <span class="line"><span style="color: #ABB2BF">					&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;group-hover:text-gray-500 group-focus-within:text-gray-500&quot;</span><span style="color: #ABB2BF">&gt;El camino de aquellos amantes de una buena UI y experiencia de usuario.&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
 <span class="line"><span style="color: #ABB2BF">				&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
 <span class="line"><span style="color: #ABB2BF">			&lt;/</span><span style="color: #E06C75">label</span><span style="color: #ABB2BF">&gt;</span></span>
-<span class="line"><span style="color: #ABB2BF">			&lt;</span><span style="color: #E06C75">label</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">for</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;backend&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;flex items-start gap-x-4 bg-[var(--color-bg)] border border-black p-6 has-[:checked]:bg-indigo-500 group my-3&quot;</span><span style="color: #ABB2BF">&gt;	</span></span>
+<span class="line"><span style="color: #ABB2BF">			&lt;</span><span style="color: #E06C75">label</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">for</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;backend&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;flex items-start gap-x-4 bg-[var(--color-bg)] border border-black p-6 [&amp;:has(:checked)]:bg-indigo-200 group my-3&quot;</span><span style="color: #ABB2BF">&gt;	</span></span>
 <span class="line"><span style="color: #ABB2BF">				&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
 <span class="line"><span style="color: #ABB2BF">					&lt;</span><span style="color: #E06C75">input</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;checked:ring-white&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">type</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;radio&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">name</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;path&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">id</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;backend&quot;</span><span style="color: #ABB2BF"> /&gt;</span></span>
 <span class="line"><span style="color: #ABB2BF">				&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
@@ -186,7 +299,7 @@
 <span class="line"><span style="color: #ABB2BF">					&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;group-hover:text-gray-500 group-focus-within:text-gray-500&quot;</span><span style="color: #ABB2BF">&gt;Tu elección si te gusta la seguridad y robustez de unos datos bien mantenidos.&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
 <span class="line"><span style="color: #ABB2BF">				&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
 <span class="line"><span style="color: #ABB2BF">			&lt;/</span><span style="color: #E06C75">label</span><span style="color: #ABB2BF">&gt;</span></span>
-<span class="line"><span style="color: #ABB2BF">			&lt;</span><span style="color: #E06C75">label</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">for</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;technical&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;flex items-start gap-x-4 bg-[var(--color-bg)] border border-black p-6 has-[:checked]:bg-indigo-500 group my-3&quot;</span><span style="color: #ABB2BF">&gt;	</span></span>
+<span class="line"><span style="color: #ABB2BF">			&lt;</span><span style="color: #E06C75">label</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">for</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;technical&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;flex items-start gap-x-4 bg-[var(--color-bg)] border border-black p-6 [&amp;:has(:checked)]:bg-indigo-200 group my-3&quot;</span><span style="color: #ABB2BF">&gt;	</span></span>
 <span class="line"><span style="color: #ABB2BF">				&lt;</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
 <span class="line"><span style="color: #ABB2BF">					&lt;</span><span style="color: #E06C75">input</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">class</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;checked:ring-white&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">type</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;radio&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">name</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;path&quot;</span><span style="color: #ABB2BF"> </span><span style="color: #D19A66; font-style: italic">id</span><span style="color: #56B6C2">=</span><span style="color: #98C379">&quot;technical&quot;</span><span style="color: #ABB2BF"> /&gt;</span></span>
 <span class="line"><span style="color: #ABB2BF">				&lt;/</span><span style="color: #E06C75">div</span><span style="color: #ABB2BF">&gt;</span></span>
@@ -203,7 +316,7 @@
 		<section aria-label="Tamaño fluido de text dependiendo del view port">
 
 			
-<h2 class="text-[3vw] leading-none font-bold mb-4 undefined">3. Tamaño de texto fluido</h2>
+<h2 class="text-[2vw] leading-none font-bold mb-4 undefined">3. Tamaño de texto fluido</h2>
 
 
 
@@ -224,7 +337,7 @@
 		<section aria-label="Estilar dependiendo de la posición">
 
 			
-<h2 class="text-[3vw] leading-none font-bold mb-4 undefined">4. Estilar dependiendo de la posición</h2>
+<h2 class="text-[2vw] leading-none font-bold mb-4 undefined">4. Estilar dependiendo de la posición</h2>
 
 
 
@@ -301,7 +414,7 @@
 		<section aria-label="Container Queries">
 
 			
-<h2 class="text-[3vw] leading-none font-bold mb-4 undefined">5. Container Queries</h2>
+<h2 class="text-[2vw] leading-none font-bold mb-4 undefined">5. Container Queries</h2>
 
 
 
@@ -364,7 +477,7 @@
 		<section aria-label="Grid Masonry">
 
 			
-<h2 class="text-[3vw] leading-none font-bold mb-4 undefined">6. Grid Masonry</h2>
+<h2 class="text-[2vw] leading-none font-bold mb-4 undefined">6. Grid Masonry</h2>
 
 
 
@@ -377,7 +490,7 @@
 		<section aria-label="Text Balance">
 
 			
-<h2 class="text-[3vw] leading-none font-bold mb-4 undefined">7. Text Balance</h2>
+<h2 class="text-[2vw] leading-none font-bold mb-4 undefined">7. Text Balance</h2>
 
 
 
@@ -398,7 +511,7 @@
 		<section aria-label="Line clamp">
 
 			
-<h2 class="text-[3vw] leading-none font-bold mb-4 undefined">8. Máximo número de líneas con line-clamp</h2>
+<h2 class="text-[2vw] leading-none font-bold mb-4 undefined">8. Máximo número de líneas con line-clamp</h2>
 
 
 
@@ -444,7 +557,7 @@
 		<section aria-label="Gradient">
 
 			
-<h2 class="text-[3vw] leading-none font-bold mb-4 undefined">9. Crear gradients con from, via y to</h2>
+<h2 class="text-[2vw] leading-none font-bold mb-4 undefined">9. Crear gradients con from, via y to</h2>
 
 
 
@@ -485,7 +598,7 @@
 		<section aria-label="Atajo para font-size y line-height">
 
 			
-<h2 class="text-[3vw] leading-none font-bold mb-4 undefined">10. Atajo para font-size y line-height</h2>
+<h2 class="text-[2vw] leading-none font-bold mb-4 undefined">10. Atajo para font-size y line-height</h2>
 
 
 
